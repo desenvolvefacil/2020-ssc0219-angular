@@ -7,6 +7,7 @@ node server.js
 
 ng serve
 
+
 ## Gerar pasta Dist para publicação
 
 ng build --prod
