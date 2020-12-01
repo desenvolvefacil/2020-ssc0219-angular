@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
-var $: any;
+import { CategoriaService } from './services/categoria.service';
+import { CategoriaModel } from './../model/CategoriaModel';
+import { Component, OnInit } from '@angular/core';
+import { Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -9,16 +12,61 @@ var $: any;
 
 
 
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'loja-nerd-angular';
 
-  lista = [{ Nome: "Canecas", Alias: "alias" }, { Nome: "Camisas", Alias: "camisa" }];
+  //categorias = [{ Nome: "Canecas", Alias: "alias" }, { Nome: "Camisas", Alias: "camisa" }];
 
-  classeMenu = "topnav"
+  
+  public categorias : Array<CategoriaModel>;
 
+  classeMenu = "topnav";
+  indexAtivo = 0;
 
-  abrirUrl(cat:any){
+  constructor(private catService:CategoriaService,private router:Router){
+    this.categorias = new Array<CategoriaModel>();
+
     
+
+  }
+
+  ngOnInit(){
+    
+      
+    this.catService.lisarCategorias() .subscribe((data:any) => {
+      this.categorias = data.map((e:any) => {
+      return{
+        id: e.payload.doc.id,
+        isEdit: false,
+        Nome: e.payload.doc.data()['Nome'],
+        Alias: e.payload.doc.data()['Alias'],
+        //Description: e.payload.doc.data()['Description'],
+      };
+      })
+        //console.log(this.categorias);
+      });
+      
+  }
+
+  abrirUrl(cat:CategoriaModel,i:number){
+    //alert(cat.Nome);
+
+    //muda o menu ativo
+    this.indexAtivo = i;
+
+    //this.router.navigateByUrl("/categoria/"+cat.Alias);
+
+    //this.router.navigate(['/categoria', cat.Alias]);
+
+//    return false;
+
+  //evita o reload
+  setTimeout(() => {
+  this.router.navigateByUrl('/dashboard', {skipLocationChange: false}).then(() =>
+      this.router.navigate(['/categoria', cat.Alias])
+        );
+  }, 500)
+
   }
 
   abrirMenu() {

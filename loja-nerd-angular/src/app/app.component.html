@@ -33,9 +33,9 @@
 
           <nav id="menu">
             <div class="{{classeMenu}}" id="navbar">
-                <a href="/" class="active">Home</a>
+                <a href="/" class="{{indexAtivo==0?'active':''}}">Home</a>
 
-                <a *ngFor="let c of lista"  href="#" (click)="abrirUrl(c.Alias);"  >{{c.Nome}}</a>
+                <a *ngFor="let c of categorias;let i = index"  href="/categoria/{{c.Alias}}" (click)="abrirUrl(c,i+1);" class="{{indexAtivo==(i+1)?'active':''}}"  >{{c.Nome}}</a>
                 
                 <a href="#" class="icon" (click)="abrirMenu()">
                   <i class="fa fa-bars"></i>
