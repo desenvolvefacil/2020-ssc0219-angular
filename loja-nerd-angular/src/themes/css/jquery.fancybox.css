@@ -75,11 +75,9 @@
 	max-height: 100%;
 }
 
-/*
 #fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
 	background-image: url('../img/fancybox_sprite.png');
 }
-*/
 
 #fancybox-loading {
 	position: fixed;
@@ -174,7 +172,7 @@
 	overflow: hidden;
 	display: none;
 	z-index: 8010;
-	/*background: url('../img/fancybox_overlay.png');*/
+	background: url('../img/fancybox_overlay.png');
 }
 
 .fancybox-overlay-fixed {

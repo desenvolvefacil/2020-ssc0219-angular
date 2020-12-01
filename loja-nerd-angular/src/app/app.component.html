@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!--CABECALHO-->
 <div id="top-bar" class="container">
   <div class="row">
@@ -8,9 +9,8 @@
           <div class="account pull-right">
               <ul class="user-menu">				
                   <li><a href="#">Minha Conta</a></li>
-                  <li><a href="carrinho.html">Carrinho</a></li>
-                  <li><a href="confirmar-pedido.html">Checkout</a></li>					
-                  <li><a href="entrar.html">Entrar</a></li>		
+                  <li><a href="#">Carrinho</a></li>				
+                  <li><a href="#">Entrar</a></li>		
               </ul>
           </div>
       </div>
@@ -26,29 +26,26 @@
   </div> 
 
 
-  <section class="navbar main-menu">
-      <div class="navbar-inner main-menu">				
 
-          <nav id="menu" class="pull-left">
-              <ul>
-                  <li>
-      <a href="categoria.html">Canecas</a>					
-                  </li>															
-                  <li>
-      <a href="categoria.html">Chaveiros</a>
-    </li>			
-                  <li>
-      <a href="categoria.html">Camisetas</a>
-                  </li>							
-                  <li>
-      <a href="categoria.html">Promoções</a>
-    </li>
-                  <li>
-      <a href="categoria.html">Black Friday</a>
-    </li>
-              </ul>
+  <section class="navbar main-menu">
+
+      			
+
+          <nav id="menu">
+            <div class="{{classeMenu}}" id="navbar">
+                <a href="/" class="active">Home</a>
+
+                <a *ngFor="let c of lista"  href="#" (click)="abrirUrl(c.Alias);"  >{{c.Nome}}</a>
+                
+                <a href="#" class="icon" (click)="abrirMenu()">
+                  <i class="fa fa-bars"></i>
+                </a>
+              </div>
+              
           </nav>
-      </div>
+      
+
+      
   </section>
 
 
@@ -69,11 +66,11 @@
       <div class="span3">
           <h4>Navigation</h4>
           <ul class="nav">
-              <li><a href="./index.html">Homepage</a></li>  
+              <li><a href="/">Home</a></li>  
               <li><a href="#">About Us</a></li>
               <li><a href="#">Contac Us</a></li>
-              <li><a href="./carrinho.html">Your Cart</a></li>
-              <li><a href="./entrar.html">Login</a></li>							
+              <li><a href="#">Your Cart</a></li>
+              <li><a href="#">Login</a></li>							
           </ul>					
       </div>
       <div class="span4">
@@ -87,19 +84,30 @@
       </div>
       <div class="span5">
           <p class="logo"><img src="themes/images/logo.png" class="site_logo" alt=""></p>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. the  Lorem Ipsum has been the industry's standard dummy text ever since the you.</p>
+          <p>Loja Nerd. A maior Loja de Artigos Nerd do Brasil.</p>
           <br/>
-          <span class="social_icons">
-              <a class="facebook" href="#">Facebook</a>
-              <a class="twitter" href="#">Twitter</a>
-              <a class="skype" href="#">Skype</a>
-              <a class="vimeo" href="#">Vimeo</a>
+          <span>
+              <a title="Facebook Loja Nerd"  href="#">
+                <img src="themes/images/facebook.png"style="width: 32px; padding:10px;"/>
+              </a>
+              <a title="Twitter Loja Nerd" href="#">
+                <img src="themes/images/twitter.png"style="width: 32px; padding:10px;"/>
+              </a>
+              <a href="#" title="Instagram Loja Nerd">
+                <img src="themes/images/instagram.png"style="width: 32px; padding:10px;"/>
+              </a>
+              <a  href="#" title="Youtube">
+                <img src="themes/images/youtube.png"style="width: 32px; padding:10px;"/>
+              </a>
           </span>
       </div>					
   </div>	
 </section>
 <section id="copyright">
-  <span>Copyright 2020 All right reserved.</span>
+  <span>Copyright ©  2020. Todos os direitos reservados.</span>
 </section>
 </div>
 <!--rodapé-->
+
+
+

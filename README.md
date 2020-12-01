@@ -1,7 +1,11 @@
-### Iniciar o Bando de dados
+# Visualisar Projeto Compilado
 
-node server.js
+https://scc0219.tk/
 
+
+### Baixar Dependências (se necessário)
+
+npm install
 
 ### Iniciar o site angular
 
