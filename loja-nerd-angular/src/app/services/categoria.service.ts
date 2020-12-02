@@ -20,6 +20,7 @@ export class CategoriaService {
     return  this.firestore.collection(this.util.CategoriaDB,ref=>ref.where('Alias','==',Alias)).doc().get()
     
     //sdasdasd
+
     
     ;
   }

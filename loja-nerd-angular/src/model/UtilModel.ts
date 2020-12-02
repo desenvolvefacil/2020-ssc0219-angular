@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 export const teste ="";
 
 
+
 //cria uma LocaStorafe
 @Injectable()
 export class UtilModel{

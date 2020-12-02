@@ -34,6 +34,7 @@ export class CategoriaComponent implements OnInit {
 
   cat:CategoriaModel;
 
+  
   ngOnInit() {
     this.alias = this.route.snapshot.paramMap.get('alias');
 

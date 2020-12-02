@@ -22,5 +22,6 @@ import { CategoriaComponent } from './pages/categoria/categoria.component';
     UtilModel
   ],
   bootstrap: [AppComponent]
+  
 })
 export class AppModule { }

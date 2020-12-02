@@ -15,4 +15,5 @@ export class ProdutoModel{
 
   public Valor:number = 0;
 
+  
 }
