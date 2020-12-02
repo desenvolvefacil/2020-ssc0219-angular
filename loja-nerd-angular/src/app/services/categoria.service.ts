@@ -1,7 +1,7 @@
-import { CategoriaModel } from './../../model/CategoriaModel';
 import { UtilModel } from './../../model/UtilModel';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+
 
 
 @Injectable({
@@ -9,11 +9,19 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class CategoriaService {
 
-  constructor(private firestore: AngularFirestore) { }
+  constructor(private firestore: AngularFirestore, private util:UtilModel) { }
 
 
   lisarCategorias():any {
-    return  this.firestore.collection(UtilModel.CategoriaDB).snapshotChanges();
+    return  this.firestore.collection(this.util.CategoriaDB).snapshotChanges();
+  }
+
+  buscarCategoria(Alias:string):any{
+    return  this.firestore.collection(this.util.CategoriaDB,ref=>ref.where('Alias','==',Alias)).doc().get()
+    
+    //sdasdasd
+
+    ;
   }
 
 

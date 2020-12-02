@@ -7,13 +7,17 @@ import { Injectable } from '@angular/core';
 })
 export class ProdutoService {
 
-  constructor(private firestore: AngularFirestore) { }
+  constructor(private firestore: AngularFirestore,private util:UtilModel) { }
 
   lisarPorAlias(aliasCategoria:string):any {
     //return  this.firestore.collection(UtilModel.ProdutosDB).ref.where('AliasCategoria', '==', 'canecas');
 
-    return this.firestore.collection('testCollection', ref => ref.where("AliasCategoria", "==", aliasCategoria)).get();
+    return this.firestore.collection(this.util.ProdutosDB, ref => ref.where("AliasCategoria", "==", aliasCategoria).orderBy("Nome") ).get();
   }
   
+  listarHomePage(){
+    return this.firestore.collection(this.util.ProdutosDB, ref =>ref.orderBy('DataCadastro','desc')).get();
+    //.get();
+  }
 
 }

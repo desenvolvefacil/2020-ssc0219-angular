@@ -1,4 +1,32 @@
-<p>{{alias}}</p>
+<section class="header_text sub">
+    <h4><span>{{cat.Nome}}</span></h4>
+  </section>
+
+<section class="main-content">
+    <div class="row">
+      <div class="span12">
+        <ul class="thumbnails listing-products">
 
 
-<p *ngFor="let item of produtos">{{item.Nome}}</p> 
+
+          <li *ngFor="let prod of produtos"  class="span4">
+            <div class="product-box">
+              <a href="produto.html"><img alt="website template image" src={{prod.Foto1}}></a><br>
+              <a href="produto.html" class="title">{{prod.Nome}}</a><br>
+              <a href="categoria.html" class="category">{{prod.AliasCategoria}}</a>
+              <p class="price">{{prod.Valor}}</p>
+            </div>
+          </li>
+          
+          
+          
+          
+          
+          
+        </ul>
+        <hr>
+        
+      </div>
+      
+    </div>
+  </section>

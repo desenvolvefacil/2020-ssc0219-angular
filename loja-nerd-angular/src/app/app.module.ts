@@ -1,3 +1,4 @@
+import { UtilModel } from './../model/UtilModel';
 import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -17,7 +18,9 @@ import { CategoriaComponent } from './pages/categoria/categoria.component';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
-  providers: [],
+  providers: [
+    UtilModel
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

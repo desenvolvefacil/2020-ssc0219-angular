@@ -1,7 +1,8 @@
+import { UtilModel } from './../model/UtilModel';
 import { CategoriaService } from './services/categoria.service';
 import { CategoriaModel } from './../model/CategoriaModel';
-import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,61 +13,71 @@ import { Router} from '@angular/router';
 
 
 
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'loja-nerd-angular';
 
   //categorias = [{ Nome: "Canecas", Alias: "alias" }, { Nome: "Camisas", Alias: "camisa" }];
 
-  
-  public categorias : Array<CategoriaModel>;
+
+  public categorias: Array<CategoriaModel>;
 
   classeMenu = "topnav";
-  indexAtivo = 0;
 
-  constructor(private catService:CategoriaService,private router:Router){
+
+  constructor(private catService: CategoriaService, private router: Router, public util: UtilModel,) {
+
     this.categorias = new Array<CategoriaModel>();
 
-    
-
   }
 
-  ngOnInit(){
+
+  ngOnInit() {
     
-      
-    this.catService.lisarCategorias() .subscribe((data:any) => {
-      this.categorias = data.map((e:any) => {
-      return{
-        id: e.payload.doc.id,
-        isEdit: false,
-        Nome: e.payload.doc.data()['Nome'],
-        Alias: e.payload.doc.data()['Alias'],
-        //Description: e.payload.doc.data()['Description'],
-      };
+
+    //this.indexAtivo = UtilModel.IndexAtivo;
+
+    //alert(this.util.getIndexAtivo());
+
+    this.catService.lisarCategorias().subscribe((data: any) => {
+      this.categorias = data.map((e: any) => {
+        return {
+          id: e.payload.doc.id,
+          isEdit: false,
+          Nome: e.payload.doc.data()['Nome'],
+          Alias: e.payload.doc.data()['Alias'],
+          //Description: e.payload.doc.data()['Description'],
+        };
       })
-        //console.log(this.categorias);
-      });
-      
+      //console.log(this.categorias);
+    });
+
   }
 
-  abrirUrl(cat:CategoriaModel,i:number){
+  abrirUrl(cat: CategoriaModel|null, i: number) {
     //alert(cat.Nome);
 
     //muda o menu ativo
-    this.indexAtivo = i;
+    //this.util.IndexAtivo = i;
+    this.util.setIndexAtivo(i.toString());
+
+
+    //alert(UtilModel.IndexAtivo);
 
     //this.router.navigateByUrl("/categoria/"+cat.Alias);
 
     //this.router.navigate(['/categoria', cat.Alias]);
 
-//    return false;
+    //    return false;
 
-  //evita o reload
-  setTimeout(() => {
-  this.router.navigateByUrl('/dashboard', {skipLocationChange: false}).then(() =>
-      this.router.navigate(['/categoria', cat.Alias])
+
+    if (cat != null && cat != undefined) {
+      //evita o reload
+      setTimeout(() => {
+        this.router.navigateByUrl('/categoria', { skipLocationChange: false }).then(() =>
+          this.router.navigate(['/categoria', cat.Alias])
         );
-  }, 500)
-
+      }, 500);
+    }
   }
 
   abrirMenu() {
