@@ -43,11 +43,13 @@ export class CategoriaComponent implements OnInit {
       this.prodService.lisarPorAlias(this.alias).subscribe((ss: any) => {
 
         ss.docs.forEach((doc: any) => {
-          //console.info(doc.data());
+          console.info(doc.data());
           this.produtos.push(doc.data() as ProdutoModel);
         })
 
       });
+
+      //console.log(this.produtos);
 
       //this.catService.buscarCategoria(this.alias).sub
 

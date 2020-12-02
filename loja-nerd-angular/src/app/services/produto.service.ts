@@ -16,7 +16,7 @@ export class ProdutoService {
   }
   
   listarHomePage(){
-    return this.firestore.collection(this.util.ProdutosDB, ref =>ref.orderBy('DataCadastro','desc')).get();
+    return this.firestore.collection(this.util.ProdutosDB, ref =>ref.limit(6).orderBy('DataCadastro','desc')).get();
     //.get();
   }
 
