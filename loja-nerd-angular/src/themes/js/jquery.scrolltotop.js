@@ -57,7 +57,7 @@ var scrolltotop={
 			mainobj.$body=(window.opera)? (document.compatMode=="CSS1Compat"? $('html') : $('body')) : $('html,body')
 			mainobj.$control=$('<div id="topcontrol">'+mainobj.controlHTML+'</div>')
 				.css({position:mainobj.cssfixedsupport? 'fixed' : 'absolute', bottom:mainobj.controlattrs.offsety, right:0, opacity:0, cursor:'pointer'})
-				.attr({title:'Scroll Back to Top'})
+				.attr({title:'Ir para o Topo'})
 				.click(function(){mainobj.scrollup(); return false})
 				.appendTo('body')
 			if (document.all && !window.XMLHttpRequest && mainobj.$control.text()!='') //loose check for IE6 and below, plus whether control contains any text

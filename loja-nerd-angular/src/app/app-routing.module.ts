@@ -1,15 +1,38 @@
+import { ListaCategoriaComponent } from './adm/lista-categoria/lista-categoria.component';
+import { CadastraCategoriaComponent } from './adm/cadastra-categoria/cadastra-categoria.component';
+import { CadastraProtudoComponent } from './adm/cadastra-protudo/cadastra-protudo.component';
+import { ListaProtudoComponent } from './adm/lista-protudo/lista-protudo.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CategoriaComponent } from './pages/categoria/categoria.component';
+import { ProdutoComponent } from './pages/produto/produto.component';
 
 const routes: Routes = [
   /*OBS sempre que editarem ou criearem rotas novas, organizar sempre da maio pra menor*/
 
-  //pagins de listagem de produtos
+  
+  //pagina de listagem de produtos
   {path:"categoria/:alias",component:CategoriaComponent},
+  //página de detalhe do produto
+  {path:"produto/:alias",component:ProdutoComponent},
+  
+  //pagina de pesquisa
+  {path:"q/:q",component:CategoriaComponent},
+
   //pagina inicial (produtos aleatorios)
-  {path:"",component:CategoriaComponent}
+  {path:"",component:CategoriaComponent},
   //{path: '', redirectTo: '/categoria', pathMatch: 'full'},
+
+  {path:"adm/produto/lista",component:ListaProtudoComponent},
+
+  {path:"adm/produto/cadastro",component:CadastraProtudoComponent},
+
+  {path:"adm/procategoriaduto/lista",component:ListaCategoriaComponent},
+
+  {path:"adm/categoria/cadastro",component:CadastraCategoriaComponent},
+
+  //{path:"adm",component:ListaProtudoComponent}
+
 ];
 
 //const routes: Routes =[];

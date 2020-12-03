@@ -17,9 +17,9 @@ export class CategoriaService {
   }
 
   buscarCategoria(Alias:string):any{
-    return  this.firestore.collection(this.util.CategoriaDB,ref=>ref.where('Alias','==',Alias)).doc().get()
     
-    //sdasdasd
+    return  this.firestore.collection(this.util.CategoriaDB,ref=>ref.where('Alias','==',Alias)).get()
+    
 
     
     ;

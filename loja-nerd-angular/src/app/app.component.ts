@@ -1,7 +1,7 @@
 import { UtilModel } from './../model/UtilModel';
 import { CategoriaService } from './services/categoria.service';
 import { CategoriaModel } from './../model/CategoriaModel';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 
@@ -15,8 +15,14 @@ import { Router } from '@angular/router';
 
 
 export class AppComponent implements OnInit {
-  title = 'loja-nerd-angular';
+  title = 'Loja Nerd ANgular';
 
+  q: string = "";
+
+  //@Input() inputPesquisar!: string;
+
+  //@ViewChild('inputPesquisar') inputPesquisar: ElementRef;
+  //palavraPesquisa = "sss";
   //categorias = [{ Nome: "Canecas", Alias: "alias" }, { Nome: "Camisas", Alias: "camisa" }];
 
 
@@ -25,7 +31,7 @@ export class AppComponent implements OnInit {
   classeMenu = "topnav";
 
 
-  constructor(private catService: CategoriaService, private router: Router, public util: UtilModel,) {
+  constructor(private catService: CategoriaService, public router: Router, public util: UtilModel,) {
 
     this.categorias = new Array<CategoriaModel>();
 
@@ -33,7 +39,7 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
-    
+
 
     //this.indexAtivo = UtilModel.IndexAtivo;
 
@@ -54,32 +60,7 @@ export class AppComponent implements OnInit {
 
   }
 
-  abrirUrl(cat: CategoriaModel|null, i: number) {
-    //alert(cat.Nome);
 
-    //muda o menu ativo
-    //this.util.IndexAtivo = i;
-    this.util.setIndexAtivo(i.toString());
-
-
-    //alert(UtilModel.IndexAtivo);
-
-    //this.router.navigateByUrl("/categoria/"+cat.Alias);
-
-    //this.router.navigate(['/categoria', cat.Alias]);
-
-    //    return false;
-
-
-    if (cat != null && cat != undefined) {
-      //evita o reload
-      setTimeout(() => {
-        this.router.navigateByUrl('/categoria', { skipLocationChange: false }).then(() =>
-          this.router.navigate(['/categoria', cat.Alias])
-        );
-      }, 500);
-    }
-  }
 
   abrirMenu() {
 
@@ -103,6 +84,24 @@ export class AppComponent implements OnInit {
 
   }
 
+
+  atualizarQ(inp: KeyboardEvent | null) {
+    if (inp != null && inp.returnValue) {
+      var input = inp.target as HTMLInputElement;
+
+      this.q = input.value;
+
+    }
+  }
+
+  AbrirPesquisa() {
+    //let currentUrl = this.router.url;
+    if (this.q != '') {
+      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigate(['/q/' + this.q]);
+      });
+    }
+  }
 
 
 }

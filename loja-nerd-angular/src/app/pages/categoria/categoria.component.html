@@ -7,18 +7,15 @@
       <div class="span12">
         <ul class="thumbnails listing-products">
 
-
-          
-
           <li *ngFor="let prod of produtos"  class="span4">
             <div class="product-box">
-              <a href="produto.html">
-                <img alt="website template image" style="max-width: 150 !important;" src={{prod.Foto1}}></a>
+              <a href="/produto/{{prod.Alias}}">
+                <img alt="{{prod.Nome}}" src={{prod.Foto1}}></a>
                 <br>
-              <a href="produto.html" class="title">{{prod.Nome}}</a>
+              <a href="/produto/{{prod.Alias}}" class="title">{{prod.Nome}}</a>
               <br>
-              <a href="categoria.html" class="category">{{prod.AliasCategoria}}</a>
-              <p class="price">{{prod.Valor}}</p>
+              <a href="/categoria/{{prod.AliasCategoria}}" class="category">{{prod.AliasCategoria}}</a>
+              <p class="price">{{ prod.Valor | currency:util.Moeda  }}</p>
             </div>
           </li>   
           

@@ -20,6 +20,10 @@ export class ProdutoService {
     //.get();
   }
 
+  listarPorQ(q:string){
+    return this.firestore.collection(this.util.ProdutosDB, ref => ref.orderBy("Alias")).get();
+  }
+
   
 
 }
