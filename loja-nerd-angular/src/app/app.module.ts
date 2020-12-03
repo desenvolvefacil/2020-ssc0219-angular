@@ -16,6 +16,8 @@ import { CadastraProtudoComponent } from './adm/cadastra-protudo/cadastra-protud
 import { ListaProtudoComponent } from './adm/lista-protudo/lista-protudo.component';
 import { ListaCategoriaComponent } from './adm/lista-categoria/lista-categoria.component';
 import { CadastraCategoriaComponent } from './adm/cadastra-categoria/cadastra-categoria.component';
+import { SobreComponent } from './pages/sobre/sobre.component';
+import { ContatoComponent } from './pages/contato/contato.component';
 
 
 
@@ -42,7 +44,9 @@ registerLocaleData(localePtBr);
     CadastraProtudoComponent,
     ListaProtudoComponent,
     ListaCategoriaComponent,
-    CadastraCategoriaComponent
+    CadastraCategoriaComponent,
+    SobreComponent,
+    ContatoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,5 @@
+import { ContatoComponent } from './pages/contato/contato.component';
+import { SobreComponent } from './pages/sobre/sobre.component';
 import { ListaCategoriaComponent } from './adm/lista-categoria/lista-categoria.component';
 import { CadastraCategoriaComponent } from './adm/cadastra-categoria/cadastra-categoria.component';
 import { CadastraProtudoComponent } from './adm/cadastra-protudo/cadastra-protudo.component';
@@ -30,6 +32,9 @@ const routes: Routes = [
   {path:"adm/procategoriaduto/lista",component:ListaCategoriaComponent},
 
   {path:"adm/categoria/cadastro",component:CadastraCategoriaComponent},
+
+  {path:"sobre",component:SobreComponent},
+  {path:"contato",component:ContatoComponent},
 
   //{path:"adm",component:ListaProtudoComponent}
 
