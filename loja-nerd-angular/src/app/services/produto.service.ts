@@ -24,6 +24,9 @@ export class ProdutoService {
     return this.firestore.collection(this.util.ProdutosDB, ref => ref.orderBy("Alias")).get();
   }
 
+  buscarProduto(alias:string){
+    return  this.firestore.collection(this.util.ProdutosDB,ref=>ref.where('Alias','==',alias)).get()
+  }
   
 
 }
