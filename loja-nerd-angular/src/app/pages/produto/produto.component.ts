@@ -1,3 +1,5 @@
+import { UtilModel } from './../../../model/UtilModel';
+import { ProdutoModel } from './../../../model/ProdutoModel';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProdutoComponent implements OnInit {
 
-  constructor() { }
+  constructor(public util:UtilModel) {
+
+    this.prod = new ProdutoModel();
+
+   }
+
+  prod:ProdutoModel;
 
   ngOnInit(): void {
+
+    
+
   }
 
 }

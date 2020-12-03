@@ -1,5 +1,6 @@
 export class ProdutoModel{
-  public   Alias:string="";
+  public ID:string="";
+  public Alias:string="";
   public AliasCategoria:string="";
   public Nome:string="";
   public Descricao:string="";
