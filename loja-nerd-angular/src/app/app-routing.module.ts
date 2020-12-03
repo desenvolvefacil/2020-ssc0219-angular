@@ -1,3 +1,4 @@
+import { CarrinhoComponent } from './pages/carrinho/carrinho.component';
 import { ContatoComponent } from './pages/contato/contato.component';
 import { SobreComponent } from './pages/sobre/sobre.component';
 import { ListaCategoriaComponent } from './adm/lista-categoria/lista-categoria.component';
@@ -35,6 +36,7 @@ const routes: Routes = [
 
   {path:"sobre",component:SobreComponent},
   {path:"contato",component:ContatoComponent},
+  {path:"carrinho",component:CarrinhoComponent},
 
   //{path:"adm",component:ListaProtudoComponent}
 

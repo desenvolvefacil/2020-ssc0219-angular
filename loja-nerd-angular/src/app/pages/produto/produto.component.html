@@ -1,6 +1,3 @@
-<script src="themes/js/jquery.fancybox.js"></script>
-
-
 <section class="header_text sub">
     <h4><span>{{prod.Nome}}</span></h4>
 </section>
@@ -9,29 +6,35 @@
     <div class="row">
         <div class="span12">
             <div class="row">
-                <div class="span4"><a href="{{prod.Foto1}}" class="thumbnail" data-fancybox-group="group1" title="Description 1"><img alt="website template image" src="{{prod.Foto1}}"></a>
+                <div class="span4"><a href="{{prod.Foto1}}" class="thumbnail" data-fancybox-group="group1" title="{{prod.Nome}}"><img alt="{{prod.Nome}}" src="{{prod.Foto1}}"></a>
                     <ul class="thumbnails small">
-                        <li class="span1"><a href="{{prod.Foto1}}" class="thumbnail" data-fancybox-group="group1" title="Description 2"><img src="{{prod.Foto1}}" alt="website template image"></a></li>
-                        <li class="span1"><a href="{{prod.Foto1}}" class="thumbnail" data-fancybox-group="group1" title="Description 2"><img src="{{prod.Foto1}}" alt="website template image"></a></li>
-                        <li class="span1"><a href="{{prod.Foto1}}" class="thumbnail" data-fancybox-group="group1" title="Description 2"><img src="{{prod.Foto1}}" alt="website template image"></a></li>
-                        <li class="span1"><a href="{{prod.Foto1}}" class="thumbnail" data-fancybox-group="group1" title="Description 2"><img src="{{prod.Foto1}}" alt="website template image"></a></li>
+                        <li class="span1">
+                            <a href="{{prod.Foto1}}" class="thumbnail" data-fancybox-group="group1" title="{{prod.Nome}}">
+                                <img src="{{prod.Foto1}}" alt="{{prod.Nome}}">
+                            </a>
+                        </li>
+
+
+                        <li class="span1"><a href="{{prod.Foto2}}" class="thumbnail" data-fancybox-group="group1" title="{{prod.Nome}}"><img src="{{prod.Foto2}}" alt="{{prod.Nome}}"></a></li>
+                        <li class="span1"><a href="{{prod.Foto3}}" class="thumbnail" data-fancybox-group="group1" title="{{prod.Nome}}"><img src="{{prod.Foto3}}" alt="{{prod.Nome}}"></a></li>
+                        <li class="span1"><a href="{{prod.Foto4}}" class="thumbnail" data-fancybox-group="group1" title="{{prod.Nome}}"><img src="{{prod.Foto4}}" alt="{{prod.Nome}}"></a></li>
                         
                     </ul>
                 </div>
                 <div class="span5">
                     <address>
-                        <strong>Código do Produto:</strong> <span>{{prod.ID}}</span><br>
-                        <strong>Disponibilidade</strong> <span>{{prod.Qtd}}</span><br>
+                        <strong>Código do Produto:</strong> <span> {{IdProduto}}</span><br>
+                        <strong>Disponibilidade</strong> <span> {{prod.Qtd}}</span><br>
                     </address>
                     <h4><strong>Preço: {{prod.Valor|currency:util.Moeda }}</strong></h4>
                 </div>
                 <div class="span5">
-                    <form action="#" method="post" class="form-inline">
+                    <form method="post" class="form-inline">
                         
                         <p>&nbsp;</p>
-                        <label>Qtd:</label>
-                        <input type="number" class="span1" placeholder="1">
-                        <button class="btn btn-inverse" type="submit">Adicionar ao carrinho</button>
+                        
+
+                        <button class="btn btn-inverse" (click)="addCarrinho()"  type="submit">Adicionar ao carrinho</button>
                     </form>
                 </div>
             </div>

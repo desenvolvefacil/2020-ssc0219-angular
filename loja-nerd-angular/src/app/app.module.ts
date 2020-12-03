@@ -18,6 +18,7 @@ import { ListaCategoriaComponent } from './adm/lista-categoria/lista-categoria.c
 import { CadastraCategoriaComponent } from './adm/cadastra-categoria/cadastra-categoria.component';
 import { SobreComponent } from './pages/sobre/sobre.component';
 import { ContatoComponent } from './pages/contato/contato.component';
+import { CarrinhoComponent } from './pages/carrinho/carrinho.component';
 
 
 
@@ -46,7 +47,8 @@ registerLocaleData(localePtBr);
     ListaCategoriaComponent,
     CadastraCategoriaComponent,
     SobreComponent,
-    ContatoComponent
+    ContatoComponent,
+    CarrinhoComponent
   ],
   imports: [
     BrowserModule,

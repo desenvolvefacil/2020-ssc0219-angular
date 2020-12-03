@@ -1,7 +1,8 @@
+import { environment } from './../environments/environment';
 import { UtilModel } from './../model/UtilModel';
 import { CategoriaService } from './services/categoria.service';
 import { CategoriaModel } from './../model/CategoriaModel';
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 
@@ -40,6 +41,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
 
+    if (environment.production) {
+      if (location.protocol === 'http:') {
+        window.location.href = location.href.replace('http', 'https');
+      }
+    }
 
     //this.indexAtivo = UtilModel.IndexAtivo;
 

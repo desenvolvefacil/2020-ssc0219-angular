@@ -1,61 +1,90 @@
+import { ItemPedidoModel } from './ItemPedidoModel';
 import { Router } from '@angular/router';
 import { CategoriaModel } from './CategoriaModel';
 import { Injectable } from '@angular/core';
 
-export const teste ="";
+export const teste = "";
 
 
 
 //cria uma LocaStorafe
 @Injectable()
-export class UtilModel{
+export class UtilModel {
 
-    
-    constructor(){
-        //this.IndexAtivo = -1;
+
+  constructor() {
+    //this.IndexAtivo = -1;
+  }
+
+  //parametros para moedas e idioma
+  /**************Lembrar de Alterar no Index.php */
+  public Idioma = "pt-BR";
+  public Moeda = "BRL";
+
+  public CategoriaDB: string = "Categorias";
+  public ProdutosDB: string = "Produtos";
+
+  public getIndexAtivo(): string {
+
+    //alert( localStorage.getItem("IndexAtivo"))
+    return localStorage.getItem("IndexAtivo") as string;
+  }
+
+  public setIndexAtivo(IndexAtivo: string): void {
+    localStorage.setItem("IndexAtivo", IndexAtivo);
+  }
+
+
+  /****CARRINHO***** */
+  public getCarrinho(): Array<ItemPedidoModel> {
+
+    let carrinho =  new Array<ItemPedidoModel>();
+
+    let carString  = localStorage.getItem("CARRINHO") as string;
+
+    if(carString!=null && carString !=undefined){
+      
+     //console.info(carString);
+
+      carrinho = JSON.parse(carString);
+
     }
 
-    //parametros para moedas e idioma
-    /**************Lembrar de Alterar no Index.php */
-    public Idioma = "pt-BR";
-    public Moeda = "BRL";
+    //console.log(carrinho);
 
-    public  CategoriaDB:string = "Categorias";
-    public  ProdutosDB:string = "Produtos";
+    return carrinho;
+  }
 
-    public  getIndexAtivo():string{
+  public setCarrinho(Carrinho: Array<ItemPedidoModel>): void {
+    let CarrinhoString = JSON.stringify(Carrinho);
 
-        //alert( localStorage.getItem("IndexAtivo"))
-        return localStorage.getItem("IndexAtivo") as string;
-    }
+    localStorage.setItem("CARRINHO", CarrinhoString);
+  }
 
-    public setIndexAtivo(IndexAtivo:string):void{
-        localStorage.setItem("IndexAtivo",IndexAtivo);
-    }
 
-    
-    /*
-    AbrirUrl(cat: CategoriaModel|null,router: Router) {
-        //alert(cat.Nome);
-    
-        //muda o menu ativo
-        //this.util.IndexAtivo = i;
-        
-    
-        if (cat != null && cat != undefined) {
-            this.setIndexAtivo(cat.Alias);
 
-          //evita o reload
-          setTimeout(() => {
-            router.navigateByUrl('/categoria', { skipLocationChange: false }).then(() =>
-              router.navigate(['/categoria', cat.Alias])
-            );
-          }, 500);
-        }else{
-            this.setIndexAtivo("home");
+  /*
+  AbrirUrl(cat: CategoriaModel|null,router: Router) {
+      //alert(cat.Nome);
+  
+      //muda o menu ativo
+      //this.util.IndexAtivo = i;
+      
+  
+      if (cat != null && cat != undefined) {
+          this.setIndexAtivo(cat.Alias);
 
-            //alert(localStorage.getItem("IndexAtivo") as string)
-        }
+        //evita o reload
+        setTimeout(() => {
+          router.navigateByUrl('/categoria', { skipLocationChange: false }).then(() =>
+            router.navigate(['/categoria', cat.Alias])
+          );
+        }, 500);
+      }else{
+          this.setIndexAtivo("home");
+
+          //alert(localStorage.getItem("IndexAtivo") as string)
       }
-      */
+    }
+    */
 }
