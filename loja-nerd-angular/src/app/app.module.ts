@@ -59,7 +59,7 @@ registerLocaleData(localePtBr);
     UtilModel,
     { provide: LOCALE_ID, useValue: "pt-BR" },
   ],
+
   bootstrap: [AppComponent]
-  
 })
 export class AppModule { }
