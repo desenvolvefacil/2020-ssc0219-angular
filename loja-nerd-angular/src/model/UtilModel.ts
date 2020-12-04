@@ -1,10 +1,7 @@
 import { ItemPedidoModel } from './ItemPedidoModel';
-import { Router } from '@angular/router';
-import { CategoriaModel } from './CategoriaModel';
 import { Injectable } from '@angular/core';
 
 export const teste = "";
-
 
 
 //cria uma LocaStorafe

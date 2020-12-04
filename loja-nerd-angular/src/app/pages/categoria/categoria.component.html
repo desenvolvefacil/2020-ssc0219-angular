@@ -1,28 +1,30 @@
 <section class="header_text sub">
-    <h4><span>{{cat.Nome}}</span></h4>
-  </section>
+  <h4><span>{{cat.Nome}}</span></h4>
+</section>
+
+
 
 <section class="main-content">
-    <div class="row">
-      <div class="span12">
-        <ul class="thumbnails listing-products">
+  <div class="row">
+    <div class="span12">
+      <ul class="thumbnails listing-products">
 
-          <li *ngFor="let prod of produtos"  class="span4">
-            <div class="product-box">
-              <a href="/produto/{{prod.Alias}}">
-                <img alt="{{prod.Nome}}" src={{prod.Foto1}}></a>
-                <br>
-              <a href="/produto/{{prod.Alias}}" class="title">{{prod.Nome}}</a>
-              <br>
-              <a href="/categoria/{{prod.AliasCategoria}}" class="category">{{prod.AliasCategoria}}</a>
-              <p class="price">{{ prod.Valor | currency:util.Moeda  }}</p>
-            </div>
-          </li>   
-          
-        </ul>
-        <hr>
-        
-      </div>
-      
+        <li *ngFor="let prod of produtos" class="span4">
+          <div class="product-box">
+            <a href="/produto/{{prod.Alias}}">
+              <img alt="{{prod.Nome}}" src={{prod.Foto1}}></a>
+            <br>
+            <a href="/produto/{{prod.Alias}}" class="title">{{prod.Nome}}</a>
+            <br>
+            <a href="/categoria/{{prod.AliasCategoria}}" class="category">{{prod.AliasCategoria}}</a>
+            <p class="price">{{ prod.Valor | currency:util.Moeda  }}</p>
+          </div>
+        </li>
+
+      </ul>
+      <hr>
+
     </div>
-  </section>
+
+  </div>
+</section>

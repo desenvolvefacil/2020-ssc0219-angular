@@ -37,6 +37,7 @@ export class CategoriaComponent implements OnInit {
 
   q: string | null = null;
 
+  Banner1 = "themes/images/carousel/banner-1.jpg";
 
   ngOnInit() {
 

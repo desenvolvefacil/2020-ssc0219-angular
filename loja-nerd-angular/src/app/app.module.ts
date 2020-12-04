@@ -22,6 +22,7 @@ import { CarrinhoComponent } from './pages/carrinho/carrinho.component';
 
 
 
+
 export const customCurrencyMaskConfig = {
   align: "right",
   allowNegative: true,
