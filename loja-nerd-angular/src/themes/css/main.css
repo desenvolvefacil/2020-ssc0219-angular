@@ -452,11 +452,11 @@ section.navbar{
     overflow:hidden;
 }
 .product-box a.title{
-    text-transform:uppercase;
+    text-transform:capitalize;
     color:#111111;
     display:inline-block;
     font-weight:bold;
-    font-size:11px;
+    font-size:20px;
     margin:15px 0 0px 0;
 }
 .product-box a.category{

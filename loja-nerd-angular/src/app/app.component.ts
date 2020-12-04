@@ -54,8 +54,6 @@ export class AppComponent implements OnInit {
     this.catService.lisarCategorias().subscribe((data: any) => {
       this.categorias = data.map((e: any) => {
         return {
-          id: e.payload.doc.id,
-          isEdit: false,
           Nome: e.payload.doc.data()['Nome'],
           Alias: e.payload.doc.data()['Alias'],
           //Description: e.payload.doc.data()['Description'],
