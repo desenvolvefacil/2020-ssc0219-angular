@@ -2,65 +2,64 @@
 <!--CABECALHO-->
 <div id="top-bar" class="container">
   <div class="row">
-      <div class="span4">
-          <a href="/" class="logo pull-left"><img src="themes/images/logo.png" class="site_logo" title="Logo Loja Nerd" alt="Logo Loja Nerd"></a>
+    <div class="span4">
+      <a href="/" class="logo pull-left"><img src="themes/images/logo.png" class="site_logo" title="Logo Loja Nerd"
+          alt="Logo Loja Nerd"></a>
+    </div>
+    <div class="span8">
+      <div class="account pull-right">
+        <ul class="user-menu">
+          <li><a href="#">Minha Conta</a></li>
+          <li><a href="/carrinho">Carrinho</a></li>
+          <li><a href="#">Entrar</a></li>
+        </ul>
       </div>
-      <div class="span8">
-          <div class="account pull-right">
-              <ul class="user-menu">				
-                  <li><a href="#">Minha Conta</a></li>
-                  <li><a href="/carrinho">Carrinho</a></li>				
-                  <li><a href="#">Entrar</a></li>		
-              </ul>
-          </div>
-      </div>
+    </div>
 
-      <div class="span8">
+    <div class="span8">
 
 
 
-        
-          <form method="GET" #formPesquisa name="formPesquisa" class="search_form">
-              <input type="text"
-              
-              #box (keyup)="atualizarQ($event)"
-              
-              class="caixa-pesquisa" Placeholder="Digite aqui para procurar" />
 
-              <button  class="pesquisar" (click)="AbrirPesquisa()" >
+      <form method="GET" #formPesquisa name="formPesquisa" class="search_form">
+        <input type="text" #box (keyup)="atualizarQ($event)" class="caixa-pesquisa"
+          Placeholder="Digite aqui para procurar" />
 
-                  <i class="fa fa-search"></i>
+        <button class="pesquisar" (click)="AbrirPesquisa()">
 
-              </button>
-              
-              
-          </form>
+          <i class="fa fa-search"></i>
 
-      </div>
-  </div> 
+        </button>
+
+
+      </form>
+
+    </div>
+  </div>
 
 
 
   <section class="navbar main-menu">
 
-      			
 
-          <nav id="menu">
-            <div class="{{classeMenu}}" id="navbar">
-                <a href="/" class="{{this.util.getIndexAtivo() == 'home'?'active':''}}">Home</a>
 
-                <a *ngFor="let c of categorias;let i = index"  href="/categoria/{{c.Alias}}" class="{{this.util.getIndexAtivo()==c.Alias?'active':''}}"  >{{c.Nome}}</a>
-                
-                <a href="#" class="icon" (click)="abrirMenu()">
-                  <i class="fa fa-bars"></i>
-                </a>
-              </div>
-              
-              
-          </nav>
-      
+    <nav id="menu">
+      <div class="{{classeMenu}}" id="navbar">
+        <a href="/" class="{{this.util.getIndexAtivo() == 'home'?'active':''}}">Home</a>
 
-      
+        <a *ngFor="let c of categorias;let i = index" href="/categoria/{{c.Alias}}"
+          class="{{this.util.getIndexAtivo()==c.Alias?'active':''}}">{{c.Nome}}</a>
+
+        <a class="icon" (click)="abrirMenu()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+
+
+    </nav>
+
+
+
   </section>
 
 
@@ -68,57 +67,59 @@
 
 
 <div id="wrapper" class="container">
-<!--CABECALHO-->
+  <!--CABECALHO-->
 
 
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 
 
 
-<!--rodapé-->
-<section id="footer-bar">
-  <div class="row">
+  <!--rodapé-->
+  <section id="footer-bar">
+    <div class="row">
       <div class="span3">
-          <h4>Navegação</h4>
-          <ul class="nav">
-              <li><a href="/sobre">Sobre</a></li>
-              <li><a href="/contato">Contato</a></li>						
-          </ul>					
+        <h4>Navegação</h4>
+        <ul class="nav">
+          <li><a href="/sobre">Sobre</a></li>
+          <li><a href="/contato">Contato</a></li>
+        </ul>
       </div>
-      <div class="span4">
-          <h4>Minha Conta</h4>
-          <ul class="nav">
-              <li><a href="#">Minha Conta</a></li>
-              <li><a href="#">Meus Pedidos</a></li>
-              <li><a href="#">Lista de Desejos</a></li>
-          </ul>
+      <div class="span3">
+        <h4>Minha Conta</h4>
+        <ul class="nav">
+          <li><a href="#">Minha Conta</a></li>
+          <li><a href="#">Meus Pedidos</a></li>
+          <li><a href="#">Lista de Desejos</a></li>
+        </ul>
       </div>
-      <div class="span5">
-          <p class="logo"><img title="Logo Loja Nerd" src="themes/images/logo.png" class="site_logo" alt=""></p>
-          <p>Loja Nerd. A maior Loja de Artigos Nerd do Brasil.</p>
-          <br/>
-          <span>
-              <a title="Facebook Loja Nerd"  href="#">
-                <img src="themes/images/facebook.png"style="width: 32px; padding:10px;"/>
-              </a>
-              <a title="Twitter Loja Nerd" href="#">
-                <img src="themes/images/twitter.png"style="width: 32px; padding:10px;"/>
-              </a>
-              <a href="#" title="Instagram Loja Nerd">
-                <img src="themes/images/instagram.png"style="width: 32px; padding:10px;"/>
-              </a>
-              <a  href="#" title="Youtube">
-                <img src="themes/images/youtube.png"style="width: 32px; padding:10px;"/>
-              </a>
-          </span>
-      </div>					
-  </div>	
-</section>
-<section id="copyright">
-  <span title="Copyright ©  2020. Todos os direitos reservados.">Copyright ©  2020. Todos os direitos reservados.</span>
-</section>
+
+      <div class="span3">
+        <h4>Siga-nos</h4>
+        <span>
+          <a title="Facebook Loja Nerd" href="#">
+            <img src="themes/images/facebook.png" style="width: 32px; padding:10px;" />
+          </a>
+          <a title="Twitter Loja Nerd" href="#">
+            <img src="themes/images/twitter.png" style="width: 32px; padding:10px;" />
+          </a>
+          <a href="#" title="Instagram Loja Nerd">
+            <img src="themes/images/instagram.png" style="width: 32px; padding:10px;" />
+          </a>
+          <a href="#" title="Youtube">
+            <img src="themes/images/youtube.png" style="width: 32px; padding:10px;" />
+          </a>
+        </span>
+      </div>
+
+      <div class="span3">
+        <p class="logo"><img title="Logo Loja Nerd" src="themes/images/logo.png" class="site_logo" alt=""></p>
+        <p>Loja Nerd. A maior Loja de Artigos Nerd do Brasil.</p>
+      </div>
+    </div>
+  </section>
+  <section id="copyright">
+    <span title="Copyright ©  2020. Todos os direitos reservados.">Copyright © 2020. Todos os direitos
+      reservados.</span>
+  </section>
 </div>
 <!--rodapé-->
-
-
-
