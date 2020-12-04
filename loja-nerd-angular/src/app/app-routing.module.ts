@@ -30,7 +30,7 @@ const routes: Routes = [
 
   {path:"adm/produto/cadastro",component:CadastraProtudoComponent},
 
-  {path:"adm/procategoriaduto/lista",component:ListaCategoriaComponent},
+  {path:"adm/categoria/lista",component:ListaCategoriaComponent},
 
   {path:"adm/categoria/cadastro",component:CadastraCategoriaComponent},
 

@@ -6,18 +6,18 @@
     <div class="row">
         <div class="span12">
             <div class="row">
-                <div class="span4"><a href="{{prod.Foto1}}" class="thumbnail" data-fancybox-group="group1" title="{{prod.Nome}}"><img alt="{{prod.Nome}}" src="{{prod.Foto1}}"></a>
+                <div class="span4"><a href="{{fotoPrincipal}}" class="thumbnail" data-fancybox-group="group1" title="{{prod.Nome}}"><img alt="{{prod.Nome}}" src="{{fotoPrincipal}}"></a>
                     <ul class="thumbnails small">
                         <li class="span1">
-                            <a href="{{prod.Foto1}}" class="thumbnail" data-fancybox-group="group1" title="{{prod.Nome}}">
+                            <a href="{{prod.Foto1}}" (click)="alterarFoto(prod.Foto1)" class="thumbnail" data-fancybox-group="group1" title="{{prod.Nome}}">
                                 <img src="{{prod.Foto1}}" alt="{{prod.Nome}}">
                             </a>
                         </li>
 
 
-                        <li class="span1"><a href="{{prod.Foto2}}" class="thumbnail" data-fancybox-group="group1" title="{{prod.Nome}}"><img src="{{prod.Foto2}}" alt="{{prod.Nome}}"></a></li>
-                        <li class="span1"><a href="{{prod.Foto3}}" class="thumbnail" data-fancybox-group="group1" title="{{prod.Nome}}"><img src="{{prod.Foto3}}" alt="{{prod.Nome}}"></a></li>
-                        <li class="span1"><a href="{{prod.Foto4}}" class="thumbnail" data-fancybox-group="group1" title="{{prod.Nome}}"><img src="{{prod.Foto4}}" alt="{{prod.Nome}}"></a></li>
+                        <li class="span1"><a href="{{prod.Foto2}}" (click)="alterarFoto(prod.Foto2)" class="thumbnail" data-fancybox-group="group1" title="{{prod.Nome}}"><img src="{{prod.Foto2}}" alt="{{prod.Nome}}"></a></li>
+                        <li class="span1"><a href="{{prod.Foto3}}" (click)="alterarFoto(prod.Foto3)" class="thumbnail" data-fancybox-group="group1" title="{{prod.Nome}}"><img src="{{prod.Foto3}}" alt="{{prod.Nome}}"></a></li>
+                        <li class="span1"><a href="{{prod.Foto4}}" (click)="alterarFoto(prod.Foto4)" class="thumbnail" data-fancybox-group="group1" title="{{prod.Nome}}"><img src="{{prod.Foto4}}" alt="{{prod.Nome}}"></a></li>
                         
                     </ul>
                 </div>
@@ -33,8 +33,8 @@
                         
                         <p>&nbsp;</p>
                         
-
                         <button class="btn btn-inverse" (click)="addCarrinho()"  type="submit">Adicionar ao carrinho</button>
+
                     </form>
                 </div>
             </div>

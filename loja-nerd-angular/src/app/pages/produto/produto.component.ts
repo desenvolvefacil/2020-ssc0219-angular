@@ -27,6 +27,8 @@ export class ProdutoComponent implements OnInit {
   alias: string | null = null;
   qtd: number = 1;
 
+  fotoPrincipal:string="";
+
   IdProduto: string = "";
 
   ngOnInit(): void {
@@ -37,6 +39,8 @@ export class ProdutoComponent implements OnInit {
     this.prodService.buscarProduto(this.alias as string).subscribe((data: any) => {
 
       this.prod = data.docs[0].data();
+
+      this.fotoPrincipal= this.prod.Foto1;
 
       this.IdProduto = data.docs[0].id;
 
@@ -91,6 +95,11 @@ export class ProdutoComponent implements OnInit {
       });
     
 
+  }
+
+
+  alterarFoto(novaFoto:string){
+    this.fotoPrincipal = novaFoto;
   }
 
 }

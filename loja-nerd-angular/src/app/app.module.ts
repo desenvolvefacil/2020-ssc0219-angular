@@ -1,15 +1,14 @@
+import localePtBr  from '@angular/common/locales/pt';
 import { FormsModule } from '@angular/forms';
 import { UtilModel } from './../model/UtilModel';
 import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
 import { CategoriaComponent } from './pages/categoria/categoria.component';
 import { registerLocaleData } from '@angular/common';
-import localePtBr from '@angular/common/locales/pt';
 import { NgxCurrencyModule } from 'ngx-currency';
 import { ProdutoComponent } from './pages/produto/produto.component';
 import { CadastraProtudoComponent } from './adm/cadastra-protudo/cadastra-protudo.component';
@@ -19,8 +18,6 @@ import { CadastraCategoriaComponent } from './adm/cadastra-categoria/cadastra-ca
 import { SobreComponent } from './pages/sobre/sobre.component';
 import { ContatoComponent } from './pages/contato/contato.component';
 import { CarrinhoComponent } from './pages/carrinho/carrinho.component';
-
-
 
 
 export const customCurrencyMaskConfig = {
@@ -59,7 +56,8 @@ registerLocaleData(localePtBr);
     NgxCurrencyModule.forRoot(customCurrencyMaskConfig)
   ],
   providers: [
-    UtilModel
+    UtilModel,
+    { provide: LOCALE_ID, useValue: "pt-BR" },
   ],
   bootstrap: [AppComponent]
   
