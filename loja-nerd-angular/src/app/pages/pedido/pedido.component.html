@@ -2,6 +2,9 @@
     <div class="row">
         <div class="span12">
             <h4 class="title center"><span class="text">({{p.IdPedido}}) <strong>Data: </strong>{{p.Data.DataHora|date:"dd/MM/yyyy hh:mm"}}</span></h4>
+            
+            <h3>Items</h3>
+
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -35,6 +38,23 @@
                     </tr>
                 </tbody>
             </table>
+
+            <h3>Entregar para:</h3>
+            <table class="table table-striped">
+				<tr>
+					<th>Cliente</th>
+					<th>Endereço</th>
+				</tr>
+				<tr>
+					<td>
+						{{p.Data.Cliente.Data.Nome}} | {{p.Data.Cliente.Data.Email}}
+					</td>
+					<td>
+						{{p.Data.Cliente.Data.Endereco.logradouro}} , {{p.Data.Cliente.Data.Endereco.numero}} ({{p.Data.Cliente.Data.Endereco.complemento}} ) | {{p.Data.Cliente.Data.Endereco.bairro}} - {{p.Data.Cliente.Data.Endereco.localidade}} - {{p.Data.Cliente.Data.Endereco.uf}} 
+					</td>
+				</tr>
+			</table>
+
         </div>
     </div>
 </section>
