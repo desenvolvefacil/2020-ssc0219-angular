@@ -22,67 +22,82 @@ export class CadastraProtudoComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.catService.lisarCategorias().subscribe((data: any) => {
-      this.categorias = data.map((e: any) => {
-        return {
-          Nome: e.payload.doc.data()['Nome'],
-          Alias: e.payload.doc.data()['Alias'],
-          //Description: e.payload.doc.data()['Description'],
-        };
+    this.catService.lisarCategorias().subscribe((ss: any) => {
+
+      ss.docs.forEach((doc: any) => {
+        //console.info(doc.data());
+        let pr = new CategoriaModel();
+
+        pr.IdCategoria = doc.id;
+
+        pr.Data = doc.data();
+
+        this.categorias.push(pr);
+
       })
-      //console.log(this.categorias);
+
+      if(this.produto.Data.AliasCategoria==""){
+        this.produto.Data.AliasCategoria = this.categorias[0].Data.Alias;
+      }
+
     });
   }
 
+  /*
   updateCategoria(inp:any){
     if (inp != null && inp.returnValue) {
       var input = inp.target as HTMLSelectElement;
   
-      this.produto.AliasCategoria = input.value;
+      this.produto.Data.AliasCategoria = input.value;
 
       //alert(this.produto.AliasCategoria);
   
     }
   }
+  */
+
+ updateCategoria(){
+   alert(this.produto.Data.AliasCategoria);
+ }
 
   atualizarFoto1(inp:any){
     if (inp != null && inp.returnValue) {
       var input = inp.target as HTMLInputElement;
   
-      this.produto.Foto1 = input.value;
+      this.produto.Data.Foto1 = input.value;
 
       //alert(this.produto.AliasCategoria);
   
     }
   }
   
-    atualizarFoto1(inp:any){
+    atualizarFoto2(inp:any){
     if (inp != null && inp.returnValue) {
       var input = inp.target as HTMLInputElement;
   
-      this.produto.Foto2 = input.value;
+      this.produto.Data.Foto2 = input.value;
 
       //alert(this.produto.AliasCategoria);
   
     }
   }
   
-    atualizarFoto1(inp:any){
+    atualizarFoto3(inp:any){
     if (inp != null && inp.returnValue) {
       var input = inp.target as HTMLInputElement;
   
-      this.produto.Foto3 = input.value;
+      this.produto.Data.Foto3 = input.value;
 
       //alert(this.produto.AliasCategoria);
   
     }
   }
   
-    atualizarFoto1(inp:any){
+    atualizarFoto4(inp:any){
     if (inp != null && inp.returnValue) {
       var input = inp.target as HTMLInputElement;
   
-      this.produto.Foto4 = input.value;
+      this.produto.Data.Foto4 = input.value;
 
       //alert(this.produto.AliasCategoria);
   
