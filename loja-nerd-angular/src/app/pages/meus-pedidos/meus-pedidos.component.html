@@ -1,1 +1,23 @@
-<p>meus-pedidos works!</p>
+<section class="main-content">
+    <div class="row">
+        <div class="span12">
+            <h4 class="title center"><span class="text"><strong>Meus</strong> Pedidos</span></h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Data</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let o of pedidos">
+                        <td><a href="/pedido/{{o.IdPedido}}">{{o.IdPedido}}</a></td>
+                        <td><a href="/pedido/{{o.IdPedido}}">{{o.Data.DataHora | date:'dd/MM/yyyy hh:mm'}}</a></td>
+                        <td><a href="/pedido/{{o.IdPedido}}">{{o.Data.ValorTotal|currency:util.Moeda}}</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

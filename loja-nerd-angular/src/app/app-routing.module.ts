@@ -12,6 +12,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CategoriaComponent } from './pages/categoria/categoria.component';
 import { ProdutoComponent } from './pages/produto/produto.component';
+import { PedidoComponent } from './pages/pedido/pedido.component';
 
 const routes: Routes = [
   /*OBS sempre que editarem ou criearem rotas novas, organizar sempre da maio pra menor*/
@@ -47,6 +48,7 @@ const routes: Routes = [
   {path:"minha-conta",component:MinhaContaComponent},
   {path:"pedidos",component:MeusPedidosComponent},
 
+  {path:"pedido/:id",component:PedidoComponent},
   //{path:"adm",component:ListaProtudoComponent}
 
 ];

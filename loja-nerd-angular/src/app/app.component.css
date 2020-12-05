@@ -95,3 +95,7 @@
   font-size: 40px !important;
   background-color: #3598DC;
 }
+
+.fa-window-close{
+  cursor: not-allowed;
+}

@@ -10,7 +10,7 @@
       <div class="account pull-right">
         <ul class="user-menu">
           <li><a href="/carrinho" title="Carrinho de Compras"><i class="fa fa-shopping-cart"></i></a></li>
-          <li *ngIf="util.getUsuario()"  ><a href="/meus-pedidos" title="Meus Pedidos"><i class="fa fa-list" aria-hidden="true"></i></a></li>
+          <li *ngIf="util.getUsuario()"  ><a href="/pedidos" title="Meus Pedidos"><i class="fa fa-list" aria-hidden="true"></i></a></li>
           <li *ngIf="util.getUsuario()"><a href="/minha-conta" title="Minha Conta"><i class="fa fa-user-circle" aria-hidden="true"></i></a></li>
 
           <li *ngIf="util.getUsuario()"><a (click)="sair()" title="Sair"><i class="fa fa-window-close" aria-hidden="true"></i></a></li>
@@ -23,14 +23,11 @@
 
     <div class="span8">
 
-
-
-
       <form method="GET" #formPesquisa name="formPesquisa" class="search_form">
         <input type="text" #box (keyup)="atualizarQ($event)" class="caixa-pesquisa"
           Placeholder="Digite aqui para procurar" />
 
-        <button class="pesquisar" (click)="AbrirPesquisa()">
+        <button class="pesquisar" title="Pesquisar" (click)="AbrirPesquisa()">
 
           <i class="fa fa-search"></i>
 

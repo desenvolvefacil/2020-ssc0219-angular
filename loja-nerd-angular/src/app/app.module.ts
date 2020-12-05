@@ -22,6 +22,7 @@ import { CarrinhoComponent } from './pages/carrinho/carrinho.component';
 import { EntrarComponent } from './pages/entrar/entrar.component';
 import { MinhaContaComponent } from './pages/minha-conta/minha-conta.component';
 import { MeusPedidosComponent } from './pages/meus-pedidos/meus-pedidos.component';
+import { PedidoComponent } from './pages/pedido/pedido.component';
 
 
 export const customCurrencyMaskConfig = {
@@ -54,6 +55,7 @@ registerLocaleData(localePtBr);
     EntrarComponent,
     MinhaContaComponent,
     MeusPedidosComponent,
+    PedidoComponent,
 
     
   ],

@@ -1,0 +1,40 @@
+<section class="main-content">
+    <div class="row">
+        <div class="span12">
+            <h4 class="title center"><span class="text">({{p.IdPedido}}) <strong>Data: </strong>{{p.Data.DataHora|date:"dd/MM/yyyy hh:mm"}}</span></h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Imagem</th>
+                        <th>Nome do Produto</th>
+                        <th>Quantidade</th>
+                        <th>Preço Unitário</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of p.Data.Items; let i = index">
+                        <td><a href="/produto/{{item.AliasProduto}}"><img class="cart-image"
+                                    title="{{item.NomeProduto}}" alt="{{item.NomeProduto}}" src="{{item.Foto}}"></a>
+                        </td>
+                        <td>{{item.NomeProduto}}</td>
+                        <td>
+                             {{item.Qtd}} 
+                        </td>
+                        <td>{{item.ValorUnitario |currency:util.Moeda}}</td>
+                        <td>{{(item.ValorUnitario * item.Qtd) | currency:util.Moeda}}</td>
+                    </tr>
+
+                    <tr>
+
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td><strong>{{ p.Data.ValorTotal | currency:util.Moeda }}</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
