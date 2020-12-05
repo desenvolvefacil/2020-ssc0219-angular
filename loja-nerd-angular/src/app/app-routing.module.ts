@@ -1,4 +1,4 @@
-import { EntrarAdmComponent } from './adm/entrar-adm/entrar-adm.component';
+import { PedidosAdmComponent } from './adm/pedidos-adm/pedidos-adm.component';
 import { MeusPedidosComponent } from './pages/meus-pedidos/meus-pedidos.component';
 import { MinhaContaComponent } from './pages/minha-conta/minha-conta.component';
 import { EntrarComponent } from './pages/entrar/entrar.component';
@@ -40,9 +40,10 @@ const routes: Routes = [
   {path:"adm/categoria/cadastro",component:CadastraCategoriaComponent},
   {path:"adm/categoria/cadastro/:id",component:CadastraCategoriaComponent},
 
-  {path:"adm/pedidos",component:PedidoAdmComponent},
+  {path:"adm/pedidos",component:PedidosAdmComponent},
+  {path:"adm/pedido/:id",component:PedidoAdmComponent},
 
-  {path:"adm",component:EntrarAdmComponent},
+  {path:"adm",component:ListaProtudoComponent},
 
   {path:"sobre",component:SobreComponent},
   {path:"contato",component:ContatoComponent},

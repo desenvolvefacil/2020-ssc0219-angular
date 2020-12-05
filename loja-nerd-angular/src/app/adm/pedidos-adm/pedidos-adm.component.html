@@ -1,0 +1,61 @@
+<br /><br />
+<table>
+	<td>
+		<a href="/adm/categoria/cadastro">Nova Categoria</a>
+	</td>
+	<td>
+		|
+	</td>
+	<td>
+		<a href="/adm/categoria/lista">Listar Categorias</a>
+	</td>
+	<td>
+		|
+	</td>
+	<td>
+		<a href="/adm/produto/cadastro">Novo Produto</a>
+	</td>
+	<td>
+		|
+	</td>
+	<td>
+		<a href="/adm/produto/lista">Listar Produtos</a>
+	</td>
+	<td>
+		|
+	</td>
+	<td>
+		<a href="/adm/pedidos">Pedidos</a>
+	</td>
+
+</table>
+
+
+<hr />
+
+
+<section class="main-content">
+    <div class="row">
+        <div class="span12">
+            <h4 class="title center"><span class="text"><strong>Lista</strong> de Pedidos</span></h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Data</th>
+                        <th>Cliente</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let o of pedidos">
+                        <td><a href="adm/pedido/{{o.IdPedido}}">{{o.IdPedido}}</a></td>
+                        <td><a href="adm/pedido/{{o.IdPedido}}">{{o.Data.DataHora | date:'dd/MM/yyyy hh:mm'}}</a></td>
+                        <td><a href="adm/pedido/{{o.IdPedido}}">{{o.Data.Cliente.Data.Nome}}</a></td>
+                        <td><a href="adm/pedido/{{o.IdPedido}}">{{o.Data.ValorTotal|currency:util.Moeda}}</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

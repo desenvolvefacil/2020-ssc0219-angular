@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { CategoriaService } from './../../services/categoria.service';
 import { CategoriaModel } from './../../../model/CategoriaModel';
 import { UtilModel } from './../../../model/UtilModel';
@@ -21,7 +22,8 @@ export class CategoriaComponent implements OnInit {
     public route: ActivatedRoute,
     private prodService: ProdutoService,
     private catService: CategoriaService,
-    public util: UtilModel
+    public util: UtilModel,
+    private titleService: Title
 
   ) {
     this.produtos = new Array<ProdutoModel>();
@@ -81,6 +83,7 @@ export class CategoriaComponent implements OnInit {
 
         this.cat.Data = data.docs[0].data();
 
+        this.titleService.setTitle(this.cat.Data.Nome)
 
       })
       //console.log(this.categorias);
@@ -93,6 +96,8 @@ export class CategoriaComponent implements OnInit {
       this.cat.Data.Alias = "";
       this.cat.Data.Nome = "Resultados para: " + this.q;
 
+      this.titleService.setTitle(this.cat.Data.Nome)
+      
       //let retorno = new Array<Produ>
 
       this.prodService.listarPorQ(this.q).subscribe((ss: any) => {
@@ -124,6 +129,7 @@ export class CategoriaComponent implements OnInit {
       //busca 6 produtos aleatorios
 
       this.util.setIndexAtivo("home");
+      
 
       this.prodService.listarHomePage().subscribe((ss: any) => {
 

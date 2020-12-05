@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { UsuarioService } from './../../services/usuario.service';
 import { EnderecoUsuarioModel } from './../../../model/UsuarioModel';
 import { UtilModel } from './../../../model/UtilModel';
@@ -10,8 +11,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MinhaContaComponent implements OnInit {
 
-  constructor(util:UtilModel,private us: UsuarioService) { 
+  constructor(util:UtilModel,private us: UsuarioService,private titleService: Title) { 
     this.u = util.getUsuario();
+
+    this.titleService.setTitle("Minha Conta")
   }
 
   u

@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { PedidoService } from './../../services/pedido.service';
 import { UtilModel } from './../../../model/UtilModel';
@@ -11,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PedidoComponent implements OnInit {
 
-  constructor(public util:UtilModel, private pServ:PedidoService, private route:ActivatedRoute) {
+  constructor(public util:UtilModel, private pServ:PedidoService, private route:ActivatedRoute,private titleService: Title) {
     this.p = new PedidoModel();
    }
 
@@ -19,6 +20,8 @@ export class PedidoComponent implements OnInit {
 
   ngOnInit(): void {
     let id = this.route.snapshot.paramMap.get('id');
+
+    this.titleService.setTitle("Pedido: "+id)
 
     if(id!=null){
       this.p.IdPedido = id;

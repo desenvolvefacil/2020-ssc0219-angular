@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { PedidoModel } from './../../../model/PedidoModel';
 import { Router } from '@angular/router';
 import { UtilModel } from './../../../model/UtilModel';
@@ -12,10 +13,12 @@ import { Component, OnInit } from '@angular/core';
 export class MeusPedidosComponent implements OnInit {
 
   constructor(public ps: PedidoService, public util: UtilModel, public router: Router,
-    public pServ: PedidoService
+    public pServ: PedidoService,private titleService: Title
   ) {
     this.u = util.getUsuario();
     this.pedidos = new Array<PedidoModel>();
+
+    this.titleService.setTitle("Meus Pedidos")
   }
 
   u;
@@ -46,7 +49,7 @@ export class MeusPedidosComponent implements OnInit {
 
       });
 
-      console.info(this.pedidos);
+      //console.info(this.pedidos);
 
     });
 

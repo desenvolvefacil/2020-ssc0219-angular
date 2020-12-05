@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { UtilModel } from './../../../model/UtilModel';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioService } from './../../services/usuario.service';
@@ -14,8 +15,10 @@ export class EntrarComponent implements OnInit {
 
   constructor(
     private us: UsuarioService, public route: ActivatedRoute, public router: Router
-    , private util: UtilModel
-  ) { }
+    , private util: UtilModel,private titleService: Title
+  ) { 
+    this.titleService.setTitle("Enrar|Cadastrar")
+  }
 
   public u: UsuarioModel = new UsuarioModel()
 

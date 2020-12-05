@@ -5,6 +5,7 @@ import { ItemPedidoModel } from './../../../model/ItemPedidoModel';
 import { UtilModel } from './../../../model/UtilModel';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-carrinho',
@@ -16,10 +17,12 @@ export class CarrinhoComponent implements OnInit {
   constructor(
     public util:UtilModel,
     public route: ActivatedRoute, public router: Router,
-    public pServ:PedidoService
+    public pServ:PedidoService,
+    private titleService: Title
 
   ) { 
     this.carrinho = new Array<ItemPedidoModel>();
+    this.titleService.setTitle("Carrinho")
   }
 
   carrinho:Array<ItemPedidoModel>;

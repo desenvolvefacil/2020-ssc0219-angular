@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { ItemPedidoModel } from './../../../model/ItemPedidoModel';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProdutoService } from './../../services/produto.service';
@@ -16,7 +17,8 @@ export class ProdutoComponent implements OnInit {
     public util: UtilModel,
     private prodService: ProdutoService,
     public route: ActivatedRoute,
-    public router: Router
+    public router: Router,
+    private titleService: Title
   ) {
 
     this.prod = new ProdutoModel();
@@ -42,7 +44,7 @@ export class ProdutoComponent implements OnInit {
 
       this.fotoPrincipal= this.prod.Data.Foto1;
 
-      
+      this.titleService.setTitle(this.prod.Data.Nome)
 
       //this.cat = data.docs[0].data();
 

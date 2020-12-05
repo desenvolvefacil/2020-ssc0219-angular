@@ -1,3 +1,35 @@
+<table>
+  <td>
+    <a href="/adm/categoria/cadastro">Nova Categoria</a>
+  </td>
+  <td>
+    |
+  </td>
+  <td>
+    <a href="/adm/categoria/lista">Listar Categorias</a>
+  </td>
+  <td>
+    |
+  </td>
+  <td>
+    <a href="/adm/produto/cadastro">Novo Produto</a>
+  </td>
+  <td>
+    |
+  </td>
+  <td>
+    <a href="/adm/produto/lista">Listar Produtos</a>
+  </td>
+  <td>
+    |
+  </td>
+  <td>
+    <a href="/adm/pedidos">Pedidos</a>
+  </td>
+
+</table>
+<hr />
+
 <section class="main-content">
   <div class="row">
     <div class="span12">
@@ -9,7 +41,8 @@
 
             <label class="control-label">AliasCategoria</label>
             <div class="controls">
-              <select name="AliasCategoria" [(ngModel)]="produto.Data.AliasCategoria" [ngModelOptions]="{standalone: true}">
+              <select name="AliasCategoria" [(ngModel)]="produto.Data.AliasCategoria"
+                [ngModelOptions]="{standalone: true}">
                 <option *ngFor="let o of categorias" value="{{o.Data.Alias}}">{{o.Data.Nome}}</option>
               </select>
             </div>
@@ -17,71 +50,72 @@
           <div class="control-group">
             <label class="control-label"><br />Alias</label>
             <div class="controls">
-              <input type="text" placeholder="identificacao-do-produto" id="Alias" class="input-xlarge">
+              <input [(ngModel)]="produto.Data.Alias"
+              [ngModelOptions]="{standalone: true}" type="text" placeholder="identificacao-do-produto" id="Alias" class="input-xlarge">
             </div>
           </div>
           <div class="control-group">
             <label class="control-label"><br />Nome do Produto</label>
             <div class="controls">
-              <input type="text" placeholder="nome de exibição do produto" id="Nome" class="input-xlarge">
+              <input [(ngModel)]="produto.Data.Nome"
+              [ngModelOptions]="{standalone: true}" type="text" placeholder="nome de exibição do produto" id="Nome" class="input-xlarge">
             </div>
           </div>
           <div class="control-group">
             <label class="control-label"><br />Descrição do Produto</label>
             <div class="controls">
-              <input type="text" placeholder="descrição detalhada do produto" id="Descricao" class="input-xlarge">
+              <input type="text" [(ngModel)]="produto.Data.Descricao"
+              [ngModelOptions]="{standalone: true}" placeholder="descrição detalhada do produto" id="Descricao" class="input-xlarge">
             </div>
           </div>
           <div class="control-group">
             <label class="control-label"><br />Quantidade em estoque</label>
             <div class="controls">
-              <input type="number" placeholder="somente números" id="Qtd" class="input-xlarge">
+              <input type="text" [(ngModel)]="produto.Data.Qtd"
+              [ngModelOptions]="{standalone: true}" placeholder="somente números" id="Qtd" class="input-xlarge">
             </div>
           </div>
           <div class="control-group">
             <label class="control-label"><br />Valor</label>
             <div class="controls">
-              <input type="text" placeholder="xxx.xx" id="Valor" class="input-xlarge">
+              <input [(ngModel)]="produto.Data.Valor"
+              [ngModelOptions]="{standalone: true}" type="text" placeholder="xxx.xx" id="Valor" class="input-xlarge">
             </div>
           </div>
 
           <div class="control-group">
             <label class="control-label"><br />Imagem1</label>
             <div class="controls">
-              <input type="text" placeholder="imagem: Base64" id="Foto1" class="input-xlarge"
-              [(ngModel)]="produto.Data.Foto1" [ngModelOptions]="{standalone: true}" >
-              <img [src]="produto.Data.Foto1" style="width: 300px;" />
+              <input type="file" class="input-xlarge" (change)="SubirFoto($event,1)">
+              <img [src]="produto.Data.Foto1" style="width: 300px;" onerror="this.src='/themes/images/semimagem.jpg'" />
             </div>
           </div>
 
           <div class="control-group">
             <label class="control-label"><br />Imagem2</label>
             <div class="controls">
-              <input type="text" placeholder="imagem: Base64" id="Foto2" class="input-xlarge"
-              [(ngModel)]="produto.Data.Foto2" [ngModelOptions]="{standalone: true}" >
-              <img [src]="produto.Data.Foto2" style="width: 300px;" />
+              <input type="file" class="input-xlarge" (change)="SubirFoto($event,2)">
+              <img [src]="produto.Data.Foto2" style="width: 300px;" onerror="this.src='/themes/images/semimagem.jpg'" />
             </div>
           </div>
           <div class="control-group">
             <label class="control-label"><br />Imagem3</label>
             <div class="controls">
-              <input type="text" placeholder="imagem: Base64" id="Foto3" class="input-xlarge"
-                (keyup)="atualizarFoto3($event)">
-              <img [src]="produto.Data.Foto1" style="width: 300px;" />
+              <input type="file" class="input-xlarge" (change)="SubirFoto($event,3)">
+              <img [src]="produto.Data.Foto3" style="width: 300px;" onerror="this.src='/themes/images/semimagem.jpg'" />
             </div>
           </div>
           <div class="control-group">
             <label class="control-label"><br />Imagem4</label>
             <div class="controls">
-              <input type="text" placeholder="imagem: Base64" id="Foto4" class="input-xlarge"
-                (keyup)="atualizarFoto4($event)">
-              <img [src]="produto.Data.Foto1" style="width: 300px;" />
+              <input type="file" class="input-xlarge" (change)="SubirFoto($event,4)">
+              <img [src]="produto.Data.Foto4" style="width: 300px;" onerror="this.src='/themes/images/semimagem.jpg'" />
             </div>
           </div>
           <br />
           <hr />
           <div class="control-group">
-            <input tabindex="3" class="btn btn-inverse large" type="submit" value="Enviar">
+            <input tabindex="3" (click)="Salvar()" class="btn btn-inverse large" type="submit" value="Salvar">
           </div>
 
         </fieldset>
