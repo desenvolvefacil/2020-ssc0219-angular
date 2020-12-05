@@ -1,1 +1,98 @@
-<p>minha-conta works!</p>
+<section class="main-content">
+    <div class="row">
+        <div class="span12">
+            <h4 class="title center"><strong>Meus </strong><span class="text">Dados</span></h4>
+            <form action="#" method="post" class="form-stacked">
+                <fieldset>
+                    <div class="control-group">
+                        <label class="control-label">Nome</label>
+                        <div class="controls">
+                            <input type="text" [(ngModel)]="u.Data.Nome" [ngModelOptions]="{standalone: true}"
+                                placeholder="Digite seu nome" class="input-xlarge">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Email:</label>
+                        <div class="controls">
+                            <input type="email" [(ngModel)]="u.Data.Email" [ngModelOptions]="{standalone: true}"
+                                placeholder="Digite seu email" class="input-xlarge">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Senha:</label>
+                        <div class="controls">
+                            <input type="password" [(ngModel)]="Senha" [ngModelOptions]="{standalone: true}"
+                                placeholder="Digite sua senha" class="input-xlarge">
+                        </div>
+                    </div>
+
+                    <hr />
+                    <div class="control-group">
+                        <label class="control-label">Cep:</label>
+                        <div class="controls">
+                            <input (blur)="buscarCep()" [(ngModel)]="u.Data.Endereco.cep"
+                                [ngModelOptions]="{standalone: true}" type="text" placeholder="Digite seu Cep"
+                                class="input-xlarge">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Endereço:</label>
+                        <div class="controls">
+                            <input [(ngModel)]="u.Data.Endereco.logradouro" [ngModelOptions]="{standalone: true}"
+                                type="text" placeholder="Digite seu Logradouro" class="input-xlarge">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Número:</label>
+                        <div class="controls">
+                            <input [(ngModel)]="u.Data.Endereco.numero" [ngModelOptions]="{standalone: true}"
+                                type="text" placeholder="Digite seu Número" class="input-xlarge">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Complemento:</label>
+                        <div class="controls">
+                            <input [(ngModel)]="u.Data.Endereco.complemento" [ngModelOptions]="{standalone: true}"
+                                type="text" placeholder="Digite seu Complemento" class="input-xlarge">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Bairro:</label>
+                        <div class="controls">
+                            <input [(ngModel)]="u.Data.Endereco.bairro" [ngModelOptions]="{standalone: true}"
+                                type="text" placeholder="Digite seu Bairro" class="input-xlarge">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Cidade:</label>
+                        <div class="controls">
+                            <input [(ngModel)]="u.Data.Endereco.localidade" [ngModelOptions]="{standalone: true}"
+                                type="text" placeholder="Digite seu Cidade" class="input-xlarge">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Estado:</label>
+                        <div class="controls">
+                            <select [(ngModel)]="u.Data.Endereco.uf" [ngModelOptions]="{standalone: true}"
+                                class="input-xlarge">
+                                <option *ngFor="let item of ufs" value="{{item.sigla}}">{{item.nome}}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <div class="actions">
+                        <input tabindex="9" (click)="Salvar()" class="btn btn-inverse large" type="submit"
+                            value="Salvar">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</section>

@@ -23,8 +23,12 @@ export class UsuarioService {
     return this.firestore.collection(this.util.UsuariosDB).add(JSON.parse(JSON.stringify(u.Data)));
   }
 
-  alteraUsuario(u:UsuarioModel){
-    this.firestore.doc(this.util.UsuariosDB+'/' + u.IdUsuario).update(JSON.stringify(u.Data));
+  alteraUsuario(u:UsuarioModel, Senha:string){
+    if(Senha!=""){
+      u.Data.Senha = sha512.create().update(Senha).toString();
+    }
+
+    return this.firestore.collection(this.util.UsuariosDB).doc(u.IdUsuario).update(JSON.parse(JSON.stringify(u.Data)));
   }
 
   logar(email:string,senha:string){
