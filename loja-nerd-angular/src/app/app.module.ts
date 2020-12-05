@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import localePtBr  from '@angular/common/locales/pt';
 import { FormsModule } from '@angular/forms';
 import { UtilModel } from './../model/UtilModel';
@@ -62,6 +63,7 @@ registerLocaleData(localePtBr);
     AngularFireModule.initializeApp(environment.firebase),
     FormsModule,
     NgxCurrencyModule.forRoot(customCurrencyMaskConfig),
+    HttpClientModule
   ],
   providers: [
     UtilModel,

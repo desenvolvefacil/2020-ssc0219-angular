@@ -15,6 +15,9 @@ export class UtilModel {
 
   public CategoriaDB: string = "Categorias";
   public ProdutosDB: string = "Produtos";
+  public UsuariosDB: string = "Usuarios";
+
+  public PedidosDB: string = "Pedidos";
 
   public getIndexAtivo(): string {
 
@@ -30,13 +33,13 @@ export class UtilModel {
   /****CARRINHO***** */
   public getCarrinho(): Array<ItemPedidoModel> {
 
-    let carrinho =  new Array<ItemPedidoModel>();
+    let carrinho = new Array<ItemPedidoModel>();
 
-    let carString  = localStorage.getItem("CARRINHO") as string;
+    let carString = localStorage.getItem("CARRINHO") as string;
 
-    if(carString!=null && carString !=undefined){
-      
-     //console.info(carString);
+    if (carString != null && carString != undefined) {
+
+      //console.info(carString);
 
       carrinho = JSON.parse(carString);
 
@@ -56,7 +59,7 @@ export class UtilModel {
 
 
   /**************Menu Categorias******** */
-  public setMenuCategorias(Categorias:Array<CategoriaModel>):void{
+  public setMenuCategorias(Categorias: Array<CategoriaModel>): void {
     let CategoriasString = JSON.stringify(Categorias);
 
     localStorage.setItem("CATEGORIAS", CategoriasString);
@@ -64,15 +67,15 @@ export class UtilModel {
 
   public getMenuCategorias(): Array<CategoriaModel> {
 
-    let Categorias =  new Array<CategoriaModel>();
+    let Categorias = new Array<CategoriaModel>();
 
-    let CategoriasString  = localStorage.getItem("CATEGORIAS") as string;
+    let CategoriasString = localStorage.getItem("CATEGORIAS") as string;
 
-    if(CategoriasString!=null && CategoriasString !=undefined){
-      
-     //console.info(carString);
+    if (CategoriasString != null && CategoriasString != undefined) {
 
-     Categorias = JSON.parse(CategoriasString);
+      //console.info(carString);
+
+      Categorias = JSON.parse(CategoriasString);
 
     }
 
@@ -85,14 +88,14 @@ export class UtilModel {
 
   public getUsuario(): UsuarioModel {
 
-    let uString  = localStorage.getItem("Usuario") as string;
+    let uString = localStorage.getItem("Usuario") as string;
 
     //alert( localStorage.getItem("IndexAtivo"))
     return JSON.parse(uString);
   }
 
-  public setUsuario(u:UsuarioModel|null): void {
-    let uString = JSON.stringify(UsuarioModel);
+  public setUsuario(u: UsuarioModel | null): void {
+    let uString = JSON.stringify(u);
 
     localStorage.setItem("Usuario", uString);
   }
