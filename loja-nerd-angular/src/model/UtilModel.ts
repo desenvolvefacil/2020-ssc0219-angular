@@ -1,3 +1,4 @@
+import { CategoriaModel } from './CategoriaModel';
 import { ItemPedidoModel } from './ItemPedidoModel';
 import { Injectable } from '@angular/core';
 
@@ -58,6 +59,33 @@ export class UtilModel {
     localStorage.setItem("CARRINHO", CarrinhoString);
   }
 
+
+
+  /**************Menu Categorias******** */
+  public setMenuCategorias(Categorias:Array<CategoriaModel>):void{
+    let CategoriasString = JSON.stringify(Categorias);
+
+    localStorage.setItem("CATEGORIAS", CategoriasString);
+  }
+
+  public getMenuCategorias(): Array<CategoriaModel> {
+
+    let Categorias =  new Array<CategoriaModel>();
+
+    let CategoriasString  = localStorage.getItem("CATEGORIAS") as string;
+
+    if(CategoriasString!=null && CategoriasString !=undefined){
+      
+     //console.info(carString);
+
+     Categorias = JSON.parse(CategoriasString);
+
+    }
+
+    //console.log(carrinho);
+
+    return Categorias;
+  }
 
 
   /*

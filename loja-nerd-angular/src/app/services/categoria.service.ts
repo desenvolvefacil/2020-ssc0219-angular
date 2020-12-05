@@ -13,7 +13,7 @@ export class CategoriaService {
 
 
   lisarCategorias():any {
-    return  this.firestore.collection(this.util.CategoriaDB).snapshotChanges();
+    return  this.firestore.collection(this.util.CategoriaDB).get();
   }
 
   buscarCategoria(Alias:string):any{

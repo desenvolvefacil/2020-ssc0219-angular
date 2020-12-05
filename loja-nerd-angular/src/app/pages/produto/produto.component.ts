@@ -29,8 +29,6 @@ export class ProdutoComponent implements OnInit {
 
   fotoPrincipal:string="";
 
-  IdProduto: string = "";
-
   ngOnInit(): void {
 
     this.alias = this.route.snapshot.paramMap.get('alias');
@@ -38,11 +36,13 @@ export class ProdutoComponent implements OnInit {
 
     this.prodService.buscarProduto(this.alias as string).subscribe((data: any) => {
 
-      this.prod = data.docs[0].data();
+     
+      this.prod.Data = data.docs[0].data();
+      this.prod.IdProduto = data.docs[0].id;
 
-      this.fotoPrincipal= this.prod.Foto1;
+      this.fotoPrincipal= this.prod.Data.Foto1;
 
-      this.IdProduto = data.docs[0].id;
+      
 
       //this.cat = data.docs[0].data();
 
@@ -64,7 +64,7 @@ export class ProdutoComponent implements OnInit {
     let existe = false;
 
     carrinho.forEach(element => {
-      if (element.IdProduto == this.IdProduto) {
+      if (element.IdProduto == this.prod.IdProduto) {
         existe = true;
 
         element.Qtd ++;
@@ -76,12 +76,12 @@ export class ProdutoComponent implements OnInit {
 
       let p = new ItemPedidoModel();
 
-      p.IdProduto = this.IdProduto;
-      p.AliasProduto = this.prod.Alias;
-      p.Foto = this.prod.Foto1;
-      p.NomeProduto = this.prod.Nome;
+      p.IdProduto = this.prod.IdProduto;
+      p.AliasProduto = this.prod.Data.Alias;
+      p.Foto = this.prod.Data.Foto1;
+      p.NomeProduto = this.prod.Data.Nome;
       p.Qtd = 1;
-      p.ValorUnitario = this.prod.Valor;
+      p.ValorUnitario = this.prod.Data.Valor;
 
       carrinho.push(p);
     }

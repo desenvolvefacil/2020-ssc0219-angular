@@ -1,3 +1,5 @@
+import { MinhaContaComponent } from './pages/minha-conta/minha-conta.component';
+import { EntrarComponent } from './pages/entrar/entrar.component';
 import { CarrinhoComponent } from './pages/carrinho/carrinho.component';
 import { ContatoComponent } from './pages/contato/contato.component';
 import { SobreComponent } from './pages/sobre/sobre.component';
@@ -37,6 +39,10 @@ const routes: Routes = [
   {path:"sobre",component:SobreComponent},
   {path:"contato",component:ContatoComponent},
   {path:"carrinho",component:CarrinhoComponent},
+
+  {path:"entrar",component:EntrarComponent},
+
+  {path:"minha-conta",component:MinhaContaComponent},
 
   //{path:"adm",component:ListaProtudoComponent}
 

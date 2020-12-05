@@ -34,7 +34,9 @@ export class AppComponent implements OnInit {
 
   constructor(private catService: CategoriaService, public router: Router, public util: UtilModel,) {
 
-    this.categorias = new Array<CategoriaModel>();
+    this.categorias = util.getMenuCategorias();
+
+
 
   }
 
@@ -50,7 +52,7 @@ export class AppComponent implements OnInit {
     //this.indexAtivo = UtilModel.IndexAtivo;
 
     //alert(this.util.getIndexAtivo());
-
+    /*
     this.catService.lisarCategorias().subscribe((data: any) => {
       this.categorias = data.map((e: any) => {
         return {
@@ -58,9 +60,31 @@ export class AppComponent implements OnInit {
           Alias: e.payload.doc.data()['Alias'],
           //Description: e.payload.doc.data()['Description'],
         };
-      })
-      //console.log(this.categorias);
-    });
+      })*/
+
+
+    if (this.categorias.length == 0) {
+      
+      this.catService.lisarCategorias().subscribe((ss: any) => {
+
+        ss.docs.forEach((doc: any) => {
+          //console.info(doc.data());
+          let pr = new CategoriaModel();
+
+          pr.IdCategoria = doc.id;
+
+          pr.Data = doc.data();
+
+          this.categorias.push(pr);
+
+        })
+
+        this.util.setMenuCategorias(this.categorias);
+      });
+    }
+
+    //console.log(this.categorias);
+    //});
 
   }
 

@@ -18,6 +18,8 @@ import { CadastraCategoriaComponent } from './adm/cadastra-categoria/cadastra-ca
 import { SobreComponent } from './pages/sobre/sobre.component';
 import { ContatoComponent } from './pages/contato/contato.component';
 import { CarrinhoComponent } from './pages/carrinho/carrinho.component';
+import { EntrarComponent } from './pages/entrar/entrar.component';
+import { MinhaContaComponent } from './pages/minha-conta/minha-conta.component';
 
 
 export const customCurrencyMaskConfig = {
@@ -46,7 +48,9 @@ registerLocaleData(localePtBr);
     CadastraCategoriaComponent,
     SobreComponent,
     ContatoComponent,
-    CarrinhoComponent
+    CarrinhoComponent,
+    EntrarComponent,
+    MinhaContaComponent
   ],
   imports: [
     BrowserModule,

@@ -1,39 +1,39 @@
 <section class="header_text sub">
-    <h1><span>{{prod.Nome}}</span></h1>
+    <h1><span>{{prod.Data.Nome}}</span></h1>
 </section>
 
 <section class="main-content">
     <div class="row">
         <div class="span12">
             <div class="row">
-                <div class="span4"><a href="{{fotoPrincipal}}" class="thumbnail" data-fancybox-group="group1" title="{{prod.Nome}}"><img alt="{{prod.Nome}}" src="{{fotoPrincipal}}"></a>
+                <div class="span4"><a href="{{fotoPrincipal}}" class="thumbnail" data-fancybox-group="group1" title="{{prod.Data.Nome}}"><img alt="{{prod.Data.Nome}}" src="{{fotoPrincipal}}"></a>
                     <ul class="thumbnails small">
                         <li class="span1">
-                            <a href="{{prod.Foto1}}" (click)="alterarFoto(prod.Foto1)" class="thumbnail" data-fancybox-group="group1" title="{{prod.Nome}}">
-                                <img src="{{prod.Foto1}}" alt="{{prod.Nome}}">
+                            <a href="{{prod.Data.Foto1}}" (click)="alterarFoto(prod.Data.Foto1)" class="thumbnail" data-fancybox-group="group1" title="{{prod.Data.Nome}}">
+                                <img src="{{prod.Data.Foto1}}" alt="{{prod.Data.Nome}}">
                             </a>
                         </li>
 
 
-                        <li class="span1"><a href="{{prod.Foto2}}" (click)="alterarFoto(prod.Foto2)" class="thumbnail" data-fancybox-group="group1" title="{{prod.Nome}}"><img src="{{prod.Foto2}}" alt="{{prod.Nome}}"></a></li>
-                        <li class="span1"><a href="{{prod.Foto3}}" (click)="alterarFoto(prod.Foto3)" class="thumbnail" data-fancybox-group="group1" title="{{prod.Nome}}"><img src="{{prod.Foto3}}" alt="{{prod.Nome}}"></a></li>
-                        <li class="span1"><a href="{{prod.Foto4}}" (click)="alterarFoto(prod.Foto4)" class="thumbnail" data-fancybox-group="group1" title="{{prod.Nome}}"><img src="{{prod.Foto4}}" alt="{{prod.Nome}}"></a></li>
+                        <li class="span1"><a href="{{prod.Data.Foto2}}" (click)="alterarFoto(prod.Data.Foto2)" class="thumbnail" data-fancybox-group="group1" title="{{prod.Data.Nome}}"><img src="{{prod.Data.Foto2}}" alt="{{prod.Data.Nome}}"></a></li>
+                        <li class="span1"><a href="{{prod.Data.Foto3}}" (click)="alterarFoto(prod.Data.Foto3)" class="thumbnail" data-fancybox-group="group1" title="{{prod.Data.Nome}}"><img src="{{prod.Data.Foto3}}" alt="{{prod.Data.Nome}}"></a></li>
+                        <li class="span1"><a href="{{prod.Data.Foto4}}" (click)="alterarFoto(prod.Data.Foto4)" class="thumbnail" data-fancybox-group="group1" title="{{prod.Data.Nome}}"><img src="{{prod.Data.Foto4}}" alt="{{prod.Data.Nome}}"></a></li>
                         
                     </ul>
                 </div>
                 <div class="span5">
                     <address>
-                        <strong>Código do Produto:</strong> <span> {{IdProduto}}</span><br>
-                        <strong>Disponibilidade</strong> <span> {{prod.Qtd}}</span><br>
+                        <strong>Código do Produto:</strong> <span> {{prod.IdProduto}}</span><br>
+                        <strong>Disponibilidade</strong> <span> {{prod.Data.Qtd}}</span><br>
                     </address>
-                    <h4><strong>Preço: {{prod.Valor|currency:util.Moeda }}</strong></h4>
+                    <h4><strong>Preço: {{prod.Data.Valor|currency:util.Moeda }}</strong></h4>
                 </div>
                 <div class="span5">
                     <form method="post" class="form-inline">
                         
                         <p>&nbsp;</p>
                         
-                        <button class="btn btn-inverse" (click)="addCarrinho()"  type="submit">Adicionar ao carrinho</button>
+                        <button class="btn btn-inverse" (click)="addCarrinho()"  type="submit" style="font-size: 18px;"><i class="fa fa-cart-plus"> Comprar</i></button>
 
                     </form>
                 </div>
@@ -44,7 +44,7 @@
                         <li class="active"><a href="#">Descrição</a></li>
                     </ul>
                     <div class="tab-content">
-                        <div class="tab-pane active" id="home">{{prod.Descricao}}</div>
+                        <div class="tab-pane active" id="home">{{prod.Data.Descricao}}</div>
                         
                     </div>
                 </div>

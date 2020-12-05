@@ -1,5 +1,5 @@
 <section class="header_text sub">
-  <h1><span><b>{{cat.Nome}}</b></span></h1>
+  <h1><span><b>{{cat.Data.Nome}}</b></span></h1>
 </section>
 
 
@@ -11,13 +11,13 @@
 
         <li *ngFor="let prod of produtos" class="span4">
           <div class="product-box">
-            <a href="/produto/{{prod.Alias}}">
-              <img alt="{{prod.Nome}}" src={{prod.Foto1}}></a>
+            <a href="/produto/{{prod.Data.Alias}}">
+              <img alt="{{prod.Data.Nome}}" src={{prod.Data.Foto1}}></a>
             <br>
-            <a href="/produto/{{prod.Alias}}" class="title">{{prod.Nome}}</a>
+            <a href="/produto/{{prod.Data.Alias}}" class="title">{{prod.Data.Nome}}</a>
             <br>
-            <a href="/categoria/{{prod.AliasCategoria}}" class="category">{{prod.AliasCategoria}}</a>
-            <p class="price">{{ prod.Valor | currency:util.Moeda  }}</p>
+            <a href="/categoria/{{prod.Data.AliasCategoria}}" class="category">{{prod.Data.AliasCategoria}}</a>
+            <p class="price">{{ prod.Data.Valor | currency:util.Moeda  }}</p>
           </div>
         </li>
 

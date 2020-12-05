@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 
-
 @Component({
   selector: 'app-categoria',
   templateUrl: './categoria.component.html',
@@ -62,7 +61,13 @@ export class CategoriaComponent implements OnInit {
 
         ss.docs.forEach((doc: any) => {
           //console.info(doc.data());
-          this.produtos.push(doc.data() as ProdutoModel);
+          let pr = new ProdutoModel();
+
+          pr.IdProduto = doc.id;
+
+          pr.Data = doc.data();
+
+          this.produtos.push(pr);
         })
 
 
@@ -74,14 +79,10 @@ export class CategoriaComponent implements OnInit {
       this.catService.buscarCategoria(this.alias as string).subscribe((data: any) => {
 
 
-        this.cat = data.docs[0].data();
-
-        //Description: e.payload.doc.data()['Description'],
-
-        //console.info(data.docs[0].data())
+        this.cat.Data = data.docs[0].data();
 
 
-      });
+      })
       //console.log(this.categorias);
 
     } else if (this.q != null) {
@@ -89,8 +90,8 @@ export class CategoriaComponent implements OnInit {
       //significa que vem busca
 
 
-      this.cat.Alias = "";
-      this.cat.Nome = "Resultados para: " + this.q;
+      this.cat.Data.Alias = "";
+      this.cat.Data.Nome = "Resultados para: " + this.q;
 
       //let retorno = new Array<Produ>
 
@@ -98,17 +99,20 @@ export class CategoriaComponent implements OnInit {
 
         ss.docs.forEach((doc: any) => {
           //console.info(doc.data());
-          let opc = doc.data() as ProdutoModel;
+          let opc = new ProdutoModel();
+
+          opc.IdProduto = doc.id;
+          opc.Data = doc.data();
 
           this.q = this.q?.toLowerCase() as string;
 
           //alert((this.q))
 
-          console.info(opc.Nome.toLowerCase().search(this.q))
+          console.info(opc.Data.Nome.toLowerCase().search(this.q))
 
-          if(opc.Nome.toLowerCase().search(this.q)>=0){
+          if(opc.Data.Nome.toLowerCase().search(this.q)>=0){
 
-            this.produtos.push(doc.data() as ProdutoModel);
+            this.produtos.push(opc);
 
           }
 
@@ -125,14 +129,21 @@ export class CategoriaComponent implements OnInit {
 
         ss.docs.forEach((doc: any) => {
           //console.info(doc);
-          this.produtos.push(doc.data() as ProdutoModel);
+
+          let pr = new ProdutoModel();
+
+          pr.IdProduto = doc.id;
+
+          pr.Data = doc.data();
+
+          this.produtos.push(pr);
         })
 
       });
 
 
-      this.cat.Nome = "Novidades";
-      this.cat.Alias = "";
+      this.cat.Data.Nome = "Novidades";
+      this.cat.Data.Alias = "";
 
     }
 
