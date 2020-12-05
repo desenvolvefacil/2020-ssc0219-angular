@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <!--CABECALHO-->
 <div id="top-bar" class="container">
   <div class="row">
@@ -9,9 +9,14 @@
     <div class="span8">
       <div class="account pull-right">
         <ul class="user-menu">
-          <li><a href="#">Minha Conta</a></li>
-          <li><a href="/carrinho">Carrinho</a></li>
-          <li><a href="#">Entrar</a></li>
+          <li><a href="/carrinho" title="Carrinho de Compras"><i class="fa fa-shopping-cart"></i></a></li>
+          <li *ngIf="util.getUsuario()"  ><a href="/meus-pedidos" title="Meus Pedidos"><i class="fa fa-list" aria-hidden="true"></i></a></li>
+          <li *ngIf="util.getUsuario()"><a href="/minha-conta" title="Minha Conta"><i class="fa fa-user-circle" aria-hidden="true"></i></a></li>
+
+          <li *ngIf="util.getUsuario()"><a (click)="sair()" title="Sair"><i class="fa fa-window-close" aria-hidden="true"></i></a></li>
+
+          <li *ngIf="!util.getUsuario()"><a href="/entrar" title="Minha Conta"><i class="fa fa-user-circle" aria-hidden="true"></i></a></li>
+          
         </ul>
       </div>
     </div>
@@ -47,10 +52,10 @@
       <div class="{{classeMenu}}" id="navbar">
         <a href="/" class="{{this.util.getIndexAtivo() == 'home'?'active':''}}">Home</a>
 
-        <a *ngFor="let c of categorias;let i = index" href="/categoria/{{c.Alias}}"
-          class="{{this.util.getIndexAtivo()==c.Alias?'active':''}}">{{c.Nome}}</a>
+        <a *ngFor="let c of categorias;let i = index" href="/categoria/{{c.Data.Alias}}"
+          class="{{this.util.getIndexAtivo()==c.Data.Alias?'active':''}}">{{c.Data.Nome}}</a>
 
-        <a class="icon" (click)="abrirMenu()">
+        <a class="icon" style="background-color: white !important;" (click)="abrirMenu()">
           <i class="fa fa-bars"></i>
         </a>
       </div>

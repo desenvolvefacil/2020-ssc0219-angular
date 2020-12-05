@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { UtilModel } from './../model/UtilModel';
 import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, LOCALE_ID } from '@angular/core';
+import { NgModule, LOCALE_ID, ModuleWithProviders } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
@@ -18,6 +18,9 @@ import { CadastraCategoriaComponent } from './adm/cadastra-categoria/cadastra-ca
 import { SobreComponent } from './pages/sobre/sobre.component';
 import { ContatoComponent } from './pages/contato/contato.component';
 import { CarrinhoComponent } from './pages/carrinho/carrinho.component';
+import { EntrarComponent } from './pages/entrar/entrar.component';
+import { MinhaContaComponent } from './pages/minha-conta/minha-conta.component';
+import { MeusPedidosComponent } from './pages/meus-pedidos/meus-pedidos.component';
 
 
 export const customCurrencyMaskConfig = {
@@ -46,17 +49,24 @@ registerLocaleData(localePtBr);
     CadastraCategoriaComponent,
     SobreComponent,
     ContatoComponent,
-    CarrinhoComponent
+    CarrinhoComponent,
+    EntrarComponent,
+    MinhaContaComponent,
+    MeusPedidosComponent,
+
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     FormsModule,
-    NgxCurrencyModule.forRoot(customCurrencyMaskConfig)
+    NgxCurrencyModule.forRoot(customCurrencyMaskConfig),
   ],
   providers: [
     UtilModel,
+    //{ provide: UtilModel, useValue: new UtilModel() },
+    //{ provide: UtilModel, useExisting: UtilModel},
     { provide: LOCALE_ID, useValue: "pt-BR" },
   ],
 

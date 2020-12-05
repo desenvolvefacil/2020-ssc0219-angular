@@ -82,3 +82,16 @@
   width: 70%!important;
   /*background: #f1f1f1!important;*/
 }
+
+
+/*font awesome icones*/
+.fa-shopping-cart, .fa-user-circle, .fa-window-close, .fa-list{
+  color: white !important;
+  font-size: 40px !important;
+}
+
+.fa-shopping-cart:hover, .fa-user-circle:hover, .fa-window-close:hover, .fa-list:hover{
+  color: black !important;
+  font-size: 40px !important;
+  background-color: #3598DC;
+}

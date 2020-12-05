@@ -1,4 +1,12 @@
 export class ProdutoModel{
+  public IdProduto:string="";
+
+  public Data:DataProdutoModel = new DataProdutoModel();
+}
+
+
+
+export class DataProdutoModel{
 
   public Alias:string="";
   public AliasCategoria:string="";

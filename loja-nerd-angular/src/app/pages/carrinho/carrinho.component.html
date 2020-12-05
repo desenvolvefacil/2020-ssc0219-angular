@@ -15,16 +15,22 @@
                 <tbody>
 
 
-                    <tr *ngFor="let item of carrinho; let i = index" >
-                        <td><a href="/produto/{{item.AliasProduto}}"><img class="cart-image" title="{{item.NomeProduto}}" alt="{{item.NomeProduto}}" src="{{item.Foto}}"></a></td>
+                    <tr *ngFor="let item of carrinho; let i = index">
+                        <td><a href="/produto/{{item.AliasProduto}}"><img class="cart-image"
+                                    title="{{item.NomeProduto}}" alt="{{item.NomeProduto}}" src="{{item.Foto}}"></a>
+                        </td>
                         <td>{{item.NomeProduto}}</td>
-                        <td><button (click)="removerQtd(i)" class="btn" type="button">-</button> {{item.Qtd}} <button (click)="addQtd(i)" class="btn" type="button">+</button></td>
+                        <td>
+                            <button (click)="removerQtd(i)" class="btn" type="button"><i class="fa fa-minus-square"
+                                    aria-hidden="true"></i></button> {{item.Qtd}} <button (click)="addQtd(i)"
+                                class="btn" type="button"><i class="fa fa-plus-square" aria-hidden="true"></i></button>
+                        </td>
                         <td>{{item.ValorUnitario |currency:util.Moeda}}</td>
                         <td>{{(item.ValorUnitario * item.Qtd) | currency:util.Moeda}}</td>
                     </tr>
-                  
+
                     <tr>
-                       
+
                         <td>&nbsp;</td>
                         <td>&nbsp;</td>
                         <td>&nbsp;</td>
@@ -33,8 +39,8 @@
                     </tr>
                 </tbody>
             </table>
-            
-            
+
+
             <hr>
             <p class="buttons center">
                 <button class="btn" type="button">Atualizar</button>
