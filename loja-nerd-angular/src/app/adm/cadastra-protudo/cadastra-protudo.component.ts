@@ -55,6 +55,39 @@ export class CadastraProtudoComponent implements OnInit {
   
     }
   }
+  
+    atualizarFoto1(inp:any){
+    if (inp != null && inp.returnValue) {
+      var input = inp.target as HTMLInputElement;
+  
+      this.produto.Foto2 = input.value;
+
+      //alert(this.produto.AliasCategoria);
+  
+    }
+  }
+  
+    atualizarFoto1(inp:any){
+    if (inp != null && inp.returnValue) {
+      var input = inp.target as HTMLInputElement;
+  
+      this.produto.Foto3 = input.value;
+
+      //alert(this.produto.AliasCategoria);
+  
+    }
+  }
+  
+    atualizarFoto1(inp:any){
+    if (inp != null && inp.returnValue) {
+      var input = inp.target as HTMLInputElement;
+  
+      this.produto.Foto4 = input.value;
+
+      //alert(this.produto.AliasCategoria);
+  
+    }
+  }
 
   
 

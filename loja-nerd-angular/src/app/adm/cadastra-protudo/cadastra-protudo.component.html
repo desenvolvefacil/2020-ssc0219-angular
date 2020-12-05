@@ -1,39 +1,90 @@
-<h2>Cadastrar Produto</h2>
-			<form>
-			    AliasCategoria:
-				<select name="AliasCategoria" (change)="updateCategoria($event)">
+<section class="main-content">
+    <div class="row">
+      <div class="span12">
+        <h4 class="title"><span class="text"><strong>Cadastrar Produto</strong></span></h4>
+        <form action="#" method="post" >
+          <fieldset>
+		  
+            <div class="control-group">
+			
+              <label class="control-label">AliasCategoria</label>
+              <div class="controls">
+                <select name="AliasCategoria" (change)="updateCategoria($event)">
 					<option *ngFor="let o of categorias" value="{{o.Alias}}" >{{o.Nome}} </option>
-
 				</select>
-				<br/><br/>
-				<fieldset><p>Ficha do Produto:<br/><br/>
-					Alias:
-					<input type="text" name="Alias" maxlength="50" placeholder="identificação-do-produto"><br/><br/>
-					Nome:
-					<input type="text" name="Nome" maxlength="50" size="50" placeholder="nome de exibição do produto"><br/><br/>
-					Descrição:
-					<input type="text" name="Descricao" maxlength="200" size="100" placeholder="descrição detalhada do produto"><br/><br/>
-					Quantidade em estoque:
-					<input type="number" name="Qtd" placeholder="somente numeros" ><br/><br/>
-					Valor:
-					<input type="number" name="Valor" placeholder="xxx.xx"><br/><br/>
-				</fieldset>
-				<br/><br/>
-				<fieldset><p>Imagens do Produto:<br/><br/>
-					Imagem1:
-					<input type="text" name="Foto1" (keyup)="atualizarFoto1($event)" size="50" placeholder="imagem: Base64">
-					<img [src]="produto.Foto1" style="width: 300px;"/>
-					<br/><br/>
-					Imagem2:
-					<input type="text" name="Foto2"  size="50" placeholder="imagem: Base64"><br/><br/>
-					Imagem3:
-					<input type="text" name="Foto3"  size="50" placeholder="imagem: Base64"><br/><br/>
-					Imagem4:
-					<input type="text" name="Foto4"  size="50" placeholder="imagem: Base64"><br/><br/>
-				</fieldset>
-				
-				<br/><br/>
-				
-				<input type="submit" name="botão" value="Enviar"/>
-								
-			</form>
+              </div>
+            </div>
+			<div class="control-group">
+              <label class="control-label"></br>Alias</label>
+              <div class="controls">
+                <input type="text" placeholder="identificacao-do-produto" id="Alias" class="input-xlarge">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label"></br>Nome do Produto</label>
+              <div class="controls">
+                <input type="text" placeholder="nome de exibição do produto" id="Nome" class="input-xlarge">
+              </div>
+            </div>
+			<div class="control-group">
+              <label class="control-label"></br>Descrição do Produto</label>
+              <div class="controls">
+                <input type="text" placeholder="descrição detalhada do produto" id="Descricao" class="input-xlarge">
+              </div>
+            </div>
+			<div class="control-group">
+              <label class="control-label"></br>Quantidade em estoque</label>
+              <div class="controls">
+                <input type="number" placeholder="somente números" id="Qtd" class="input-xlarge">
+              </div>
+            </div>
+					<div class="control-group">
+              <label class="control-label"></br>Valor</label>
+              <div class="controls">
+                <input type="text" placeholder="xxx.xx" id="Valor" class="input-xlarge">
+              </div>
+            </div>
+			
+			<div class="control-group">
+              <label class="control-label"></br>Imagem1</label>
+              <div class="controls">
+                <input type="text" placeholder="imagem: Base64" id="Foto1" 
+				class="input-xlarge" (keyup)="atualizarFoto1($event)">
+				<img [src]="produto.Foto1" style="width: 300px;"/>
+              </div>
+            </div>
+			<div class="control-group">
+              <label class="control-label"></br>Imagem2</label>
+              <div class="controls">
+                <input type="text" placeholder="imagem: Base64" id="Foto2" 
+				class="input-xlarge" (keyup)="atualizarFoto2($event)">
+				<img [src]="produto.Foto1" style="width: 300px;"/>
+              </div>
+            </div>
+			<div class="control-group">
+              <label class="control-label"></br>Imagem3</label>
+              <div class="controls">
+                <input type="text" placeholder="imagem: Base64" id="Foto3" 
+				class="input-xlarge" (keyup)="atualizarFoto3($event)">
+				<img [src]="produto.Foto1" style="width: 300px;"/>
+              </div>
+            </div>
+			<div class="control-group">
+              <label class="control-label"></br>Imagem4</label>
+              <div class="controls">
+                <input type="text" placeholder="imagem: Base64" id="Foto4" 
+				class="input-xlarge" (keyup)="atualizarFoto4($event)">
+				<img [src]="produto.Foto1" style="width: 300px;"/>
+              </div>
+            </div>
+			</br><hr>
+            <div class="control-group">
+              <input tabindex="3" class="btn btn-inverse large" type="submit" value="Enviar">           
+            </div>			
+			
+          </fieldset>
+        </form>
+      </div>
+
+    </div>
+  </section>
