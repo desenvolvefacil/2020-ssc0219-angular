@@ -34,3 +34,63 @@
 <hr />
 
 
+<section class="main-content">
+    <div class="row">
+        <div class="span12">
+            <h4 class="title center"><span class="text"><strong>Pedido:</strong> ({{p.IdPedido}}) <strong>Data: </strong>{{p.Data.DataHora|date:"dd/MM/yyyy hh:mm"}}</span></h4>
+			
+			<h1>Dados do Cliente</h1>
+
+			<table class="table table-striped">
+				<tr>
+					<th>Cliente</th>
+					<th>Endereço</th>
+				</tr>
+				<tr>
+					<td>
+						{{p.Data.Cliente.Data.Nome}} | {{p.Data.Cliente.Data.Email}}
+					</td>
+					<td>
+						{{p.Data.Cliente.Data.Endereco.logradouro}} , {{p.Data.Cliente.Data.Endereco.numero}} ({{p.Data.Cliente.Data.Endereco.complemento}} ) | {{p.Data.Cliente.Data.Endereco.bairro}} - {{p.Data.Cliente.Data.Endereco.localidade}} - {{p.Data.Cliente.Data.Endereco.uf}} 
+					</td>
+				</tr>
+			</table>
+			
+			<h1>Dados do Pedido</h1>
+			
+			<table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Imagem</th>
+                        <th>Nome do Produto</th>
+                        <th>Quantidade</th>
+                        <th>Preço Unitário</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of p.Data.Items; let i = index">
+                        <td><a href="/produto/{{item.AliasProduto}}"><img class="cart-image"
+                                    title="{{item.NomeProduto}}" alt="{{item.NomeProduto}}" src="{{item.Foto}}"></a>
+                        </td>
+                        <td>{{item.NomeProduto}}</td>
+                        <td>
+                             {{item.Qtd}} 
+                        </td>
+                        <td>{{item.ValorUnitario |currency:util.Moeda}}</td>
+                        <td>{{(item.ValorUnitario * item.Qtd) | currency:util.Moeda}}</td>
+                    </tr>
+
+                    <tr>
+
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td><strong>{{ p.Data.ValorTotal | currency:util.Moeda }}</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
