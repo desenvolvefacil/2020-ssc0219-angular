@@ -1,3 +1,6 @@
+import { PedidoModel } from './../../../model/PedidoModel';
+import { PedidoService } from './../../services/pedido.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ItemPedidoModel } from './../../../model/ItemPedidoModel';
 import { UtilModel } from './../../../model/UtilModel';
 import { Component, OnInit } from '@angular/core';
@@ -11,7 +14,10 @@ import { Observable } from 'rxjs';
 export class CarrinhoComponent implements OnInit {
 
   constructor(
-    public util:UtilModel
+    public util:UtilModel,
+    public route: ActivatedRoute, public router: Router,
+    public pServ:PedidoService
+
   ) { 
     this.carrinho = new Array<ItemPedidoModel>();
   }
@@ -52,6 +58,40 @@ export class CarrinhoComponent implements OnInit {
     this.util.setCarrinho(this.carrinho);
 
     this.atualizaTotal();
+  }
+
+  FinalizarCompra(){
+    let u = this.util.getUsuario()
+    
+    if(u!=null){
+
+      let pedido =  new PedidoModel();
+
+      pedido.Data.Cliente = u;
+      pedido.Data.Items = this.carrinho;
+      pedido.Data.ValorTotal = this.ValorTotal;
+
+      this.pServ.cadastraPedido(pedido).then((retorno: any) => {
+
+
+        this.util.setCarrinho(null);
+
+        alert("Obrigado por seu Pedido");
+
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.router.navigate(['pedidos']);
+        });
+
+      });
+
+      
+
+
+    }else{
+      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigate(['entrar/carrinho']);
+      });
+    }
   }
 
 }

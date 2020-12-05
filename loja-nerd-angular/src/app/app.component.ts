@@ -125,6 +125,10 @@ export class AppComponent implements OnInit {
 
   sair(){
     this.util.setUsuario(null);
+
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate(["/"]);
+    });
   }
 
 }

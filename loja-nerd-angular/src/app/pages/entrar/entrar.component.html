@@ -5,19 +5,19 @@
       <form action="#" method="post">
         <fieldset>
           <div class="control-group">
-            <label class="control-label">EMail</label>
+            <label class="control-label">Email</label>
             <div class="controls">
-              <input type="email"  placeholder="Digite seu Email" id="username" class="input-xlarge">
+              <input type="email" [(ngModel)]="Email" [ngModelOptions]="{standalone: true}"  placeholder="Digite seu Email" id="username" class="input-xlarge">
             </div>
           </div>
           <div class="control-group">
             <label class="control-label">Senha</label>
             <div class="controls">
-              <input type="password" placeholder="Digite sua senha" id="password" class="input-xlarge">
+              <input type="password"  [(ngModel)]="Senha" [ngModelOptions]="{standalone: true}" placeholder="Digite sua senha" id="password" class="input-xlarge">
             </div>
           </div>
           <div class="control-group">
-            <input tabindex="3" class="btn btn-inverse large" type="submit" value="Acessar conta">
+            <input tabindex="3" (click)="Logar()" class="btn btn-inverse large" type="submit" value="Acessar conta">
             <hr>
             <p class="reset">Recuperar seu <a href="#">nome de usuário ou senha</a></p>
           </div>

@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UsuarioModel } from 'src/model/UsuarioModel';
+import { sha512 } from 'js-sha512';
 
 @Injectable({
   providedIn: 'root'
@@ -17,11 +18,19 @@ export class UsuarioService {
   }
 
   cadastraUsuario(u:UsuarioModel){
+    u.Data.Senha = sha512.create().update(u.Data.Senha).toString();
+
     return this.firestore.collection(this.util.UsuariosDB).add(JSON.parse(JSON.stringify(u.Data)));
   }
 
-  aletarUsuario(u:UsuarioModel){
+  alteraUsuario(u:UsuarioModel){
     this.firestore.doc(this.util.UsuariosDB+'/' + u.IdUsuario).update(JSON.stringify(u.Data));
+  }
+
+  logar(email:string,senha:string){
+    senha = sha512.create().update(senha).toString();
+
+    return  this.firestore.collection(this.util.UsuariosDB,ref=>ref.where('Email','==',email).where('Senha','==',senha)).get()
   }
 
 }

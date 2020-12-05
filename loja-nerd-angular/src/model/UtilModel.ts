@@ -50,7 +50,7 @@ export class UtilModel {
     return carrinho;
   }
 
-  public setCarrinho(Carrinho: Array<ItemPedidoModel>): void {
+  public setCarrinho(Carrinho: Array<ItemPedidoModel>|null): void {
     let CarrinhoString = JSON.stringify(Carrinho);
 
     localStorage.setItem("CARRINHO", CarrinhoString);
