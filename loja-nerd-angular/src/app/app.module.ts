@@ -23,6 +23,8 @@ import { EntrarComponent } from './pages/entrar/entrar.component';
 import { MinhaContaComponent } from './pages/minha-conta/minha-conta.component';
 import { MeusPedidosComponent } from './pages/meus-pedidos/meus-pedidos.component';
 import { PedidoComponent } from './pages/pedido/pedido.component';
+import { EntrarAdmComponent } from './adm/entrar-adm/entrar-adm.component';
+import { PedidoAdmComponent } from './adm/pedido-adm/pedido-adm.component';
 
 
 export const customCurrencyMaskConfig = {
@@ -56,6 +58,8 @@ registerLocaleData(localePtBr);
     MinhaContaComponent,
     MeusPedidosComponent,
     PedidoComponent,
+    EntrarAdmComponent,
+    PedidoAdmComponent,
 
     
   ],

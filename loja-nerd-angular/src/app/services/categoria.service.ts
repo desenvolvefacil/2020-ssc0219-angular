@@ -16,14 +16,19 @@ export class CategoriaService {
     return  this.firestore.collection(this.util.CategoriaDB).get();
   }
 
+  listarCategoriasMenu():any{
+    return  this.firestore.collection(this.util.CategoriaDB).snapshotChanges();
+  }
+
   buscarCategoria(Alias:string):any{
     
     return  this.firestore.collection(this.util.CategoriaDB,ref=>ref.where('Alias','==',Alias)).get()
-    
 
-    
     ;
   }
 
+  buscarCategoriaId(id:string){
+    return this.firestore.collection(this.util.CategoriaDB).doc(id);
+  }
 
 }

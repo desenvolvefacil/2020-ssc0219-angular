@@ -1,17 +1,53 @@
+<br /><br />
+	<table>
+		<td>
+			<a href="/adm/categoria/cadastro">Nova Categoria</a>
+		</td>
+		<td>
+			|
+		</td>
+		<td>
+			<a href="/adm/categoria/lista">Listar Categorias</a>
+		</td>
+		<td>
+			|
+		</td>
+		<td>
+			<a href="/adm/produto/cadastro">Nova Categoria</a>
+		</td>
+		<td>
+			|
+		</td>
+		<td>
+			<a href="/adm/produto/lista">Listar Categorias</a>
+		</td>
+		<td>
+			|
+		</td>
+		<td>
+			<a href="/adm/pedidos">Pedidos</a>
+		</td>
+
+	</table>
+
+
+<hr />
 
 <h4>Cadastrar Categoria:</h4>
-			<form>
-				<fieldset>Ficha da Categoria:<br/><br/>
-					Alias da Categoria:
-					<input type="text" name="Alias" maxlength="50" placeholder="Alias"><br/><br/>
-					Nome da  Categoria:
-					<input type="text" name="Nome" maxlength="50" size="50" placeholder="nome de exibição da categoria"><br/><br/>
-					
-				</fieldset>
-				
-				
-				<br/><br/>
-				
-				<input type="submit" name="botão" value="Enviar"/>
-								
-			</form>
+<form>
+	<fieldset>Ficha da Categoria:<br /><br />
+		Alias da Categoria:
+		<input type="text" [(ngModel)]="categoria.Data.Alias" name="Alias" maxlength="50"
+			placeholder="Alias"><br /><br />
+		Nome da Categoria:
+		<input type="text" [(ngModel)]="categoria.Data.Nome" name="Nome" maxlength="50" size="50"
+			placeholder="nome de exibição da categoria"><br /><br />
+
+	</fieldset>
+
+
+	<br /><br />
+
+	<input type="button" name="botão" value="Salvar" />
+
+</form>

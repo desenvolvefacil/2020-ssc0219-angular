@@ -23,7 +23,7 @@ export class PedidoComponent implements OnInit {
     if(id!=null){
       this.p.IdPedido = id;
 
-      let inf = this.pServ.buscarPedido(id).get().subscribe((o:any)=>{
+      this.pServ.buscarPedido(id).get().subscribe((o:any)=>{
         this.p.Data = o.data();
       }
       );

@@ -1,3 +1,4 @@
+import { EntrarAdmComponent } from './adm/entrar-adm/entrar-adm.component';
 import { MeusPedidosComponent } from './pages/meus-pedidos/meus-pedidos.component';
 import { MinhaContaComponent } from './pages/minha-conta/minha-conta.component';
 import { EntrarComponent } from './pages/entrar/entrar.component';
@@ -13,6 +14,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CategoriaComponent } from './pages/categoria/categoria.component';
 import { ProdutoComponent } from './pages/produto/produto.component';
 import { PedidoComponent } from './pages/pedido/pedido.component';
+import { PedidoAdmComponent } from './adm/pedido-adm/pedido-adm.component';
 
 const routes: Routes = [
   /*OBS sempre que editarem ou criearem rotas novas, organizar sempre da maio pra menor*/
@@ -31,12 +33,16 @@ const routes: Routes = [
   //{path: '', redirectTo: '/categoria', pathMatch: 'full'},
 
   {path:"adm/produto/lista",component:ListaProtudoComponent},
-
   {path:"adm/produto/cadastro",component:CadastraProtudoComponent},
+  {path:"adm/produto/cadastro/:id",component:CadastraProtudoComponent},
 
   {path:"adm/categoria/lista",component:ListaCategoriaComponent},
-
   {path:"adm/categoria/cadastro",component:CadastraCategoriaComponent},
+  {path:"adm/categoria/cadastro/:id",component:CadastraCategoriaComponent},
+
+  {path:"adm/pedidos",component:PedidoAdmComponent},
+
+  {path:"adm",component:EntrarAdmComponent},
 
   {path:"sobre",component:SobreComponent},
   {path:"contato",component:ContatoComponent},

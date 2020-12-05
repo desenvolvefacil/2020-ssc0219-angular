@@ -59,6 +59,7 @@ export class UtilModel {
 
 
   /**************Menu Categorias******** */
+  /*
   public setMenuCategorias(Categorias: Array<CategoriaModel>): void {
     let CategoriasString = JSON.stringify(Categorias);
 
@@ -83,7 +84,7 @@ export class UtilModel {
 
     return Categorias;
   }
-
+  */
 
 
   public getUsuario(): UsuarioModel {
