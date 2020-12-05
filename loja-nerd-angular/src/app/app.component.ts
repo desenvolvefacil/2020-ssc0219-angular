@@ -49,6 +49,8 @@ export class AppComponent implements OnInit {
       }
     }
 
+    //alert(this.util.getUsuario());
+
     //this.indexAtivo = UtilModel.IndexAtivo;
 
     //alert(this.util.getIndexAtivo());
@@ -121,6 +123,9 @@ export class AppComponent implements OnInit {
     }
   }
 
+  sair(){
+    this.util.setUsuario(null);
+  }
 
 }
 

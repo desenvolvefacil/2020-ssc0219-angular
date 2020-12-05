@@ -1,18 +1,12 @@
+import { UsuarioModel } from './UsuarioModel';
 import { CategoriaModel } from './CategoriaModel';
 import { ItemPedidoModel } from './ItemPedidoModel';
 import { Injectable } from '@angular/core';
-
-export const teste = "";
-
-
 //cria uma LocaStorafe
+
 @Injectable()
 export class UtilModel {
 
-
-  constructor() {
-    //this.IndexAtivo = -1;
-  }
 
   //parametros para moedas e idioma
   /**************Lembrar de Alterar no Index.php */
@@ -87,6 +81,21 @@ export class UtilModel {
     return Categorias;
   }
 
+
+
+  public getUsuario(): UsuarioModel {
+
+    let uString  = localStorage.getItem("Usuario") as string;
+
+    //alert( localStorage.getItem("IndexAtivo"))
+    return JSON.parse(uString);
+  }
+
+  public setUsuario(u:UsuarioModel|null): void {
+    let uString = JSON.stringify(UsuarioModel);
+
+    localStorage.setItem("Usuario", uString);
+  }
 
   /*
   AbrirUrl(cat: CategoriaModel|null,router: Router) {

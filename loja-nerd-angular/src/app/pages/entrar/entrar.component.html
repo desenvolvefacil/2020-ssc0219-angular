@@ -1,1 +1,66 @@
-<p>entrar works!</p>
+<section class="main-content">
+  <div class="row">
+    <div class="span5">
+      <h4 class="title"><span class="text"><strong>Login</strong></span></h4>
+      <form action="#" method="post">
+        <fieldset>
+          <div class="control-group">
+            <label class="control-label">Nome de Usuário</label>
+            <div class="controls">
+              <input type="text" placeholder="Digite seu nome de usuário" id="username" class="input-xlarge">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">Senha</label>
+            <div class="controls">
+              <input type="password" placeholder="Digite sua senha" id="password" class="input-xlarge">
+            </div>
+          </div>
+          <div class="control-group">
+            <input tabindex="3" class="btn btn-inverse large" type="submit" value="Acessar conta">
+            <hr>
+            <p class="reset">Recuperar seu <a href="#">nome de usuário ou senha</a></p>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+    <div class="span7">
+      <h4 class="title"><span class="text"><strong>Cadastre-se</strong></span></h4>
+      <form action="#" method="post" class="form-stacked">
+        <fieldset>
+          <div class="control-group">
+            <label class="control-label">Nome de Usuário</label>
+            <div class="controls">
+              <input type="text" placeholder="Digite seu nome de usuário" class="input-xlarge">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">Email:</label>
+            <div class="controls">
+              <input type="email" placeholder="Digite seu email" class="input-xlarge">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">Senha:</label>
+            <div class="controls">
+              <input type="password" placeholder="Digite sua senha" class="input-xlarge">
+            </div>
+          </div>
+
+          <hr />
+          <div class="control-group">
+            <label class="control-label">Cep:</label>
+            <div class="controls">
+              <input (blur)="buscarCep($event)" [(ngModel)]="u.Data.Cep" [ngModelOptions]="{standalone: true}"  type="email" placeholder="Digite seu Cep" class="input-xlarge">
+            </div>
+          </div>
+
+          <hr>
+          <div class="actions">
+            <input tabindex="9" class="btn btn-inverse large" type="submit" value="Criar conta">
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</section>

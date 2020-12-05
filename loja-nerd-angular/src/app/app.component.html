@@ -10,10 +10,12 @@
       <div class="account pull-right">
         <ul class="user-menu">
           <li><a href="/carrinho" title="Carrinho de Compras"><i class="fa fa-shopping-cart"></i></a></li>
-          <li><a href="/minha-conta" title="Meus Pedidos"><i class="fa fa-list" aria-hidden="true"></i></a></li>
-          <li><a href="/minha-conta" title="Minha Conta"><i class="fa fa-user-circle" aria-hidden="true"></i></a></li>
+          <li *ngIf="util.getUsuario()"  ><a href="/meus-pedidos" title="Meus Pedidos"><i class="fa fa-list" aria-hidden="true"></i></a></li>
+          <li *ngIf="util.getUsuario()"><a href="/minha-conta" title="Minha Conta"><i class="fa fa-user-circle" aria-hidden="true"></i></a></li>
 
-          <li><a href="/minha-conta" title="Sair"><i class="fa fa-window-close" aria-hidden="true"></i></a></li>
+          <li *ngIf="util.getUsuario()"><a (click)="sair()" title="Sair"><i class="fa fa-window-close" aria-hidden="true"></i></a></li>
+
+          <li *ngIf="!util.getUsuario()"><a href="/entrar" title="Minha Conta"><i class="fa fa-user-circle" aria-hidden="true"></i></a></li>
           
         </ul>
       </div>
