@@ -29,25 +29,31 @@
 	</td>
 
 </table>
-
-
 <hr />
 
-<h4>Cadastrar Categoria:</h4>
-<form>
-	<fieldset>Ficha da Categoria:<br /><br />
-		Alias da Categoria:
-		<input type="text" [(ngModel)]="categoria.Data.Alias" name="Alias" maxlength="50"
-			placeholder="Alias"><br /><br />
-		Nome da Categoria:
-		<input type="text" [(ngModel)]="categoria.Data.Nome" name="Nome" maxlength="50" size="50"
-			placeholder="nome de exibição da categoria"><br /><br />
+<section class="main-content">
+	<div class="row">
+		<div class="span12">
+			<h4 class="title"><span class="text"><strong>Cadastrar Categoria</strong></span></h4>
+			<form action="#" method="post">
+				<fieldset>
+					<div class="control-group">
+						<label class="control-label">Alias da Categoria</label>
+						<input type="text" [(ngModel)]="categoria.Data.Alias" name="Alias" maxlength="50"
+							placeholder="identificacao da categoria"><br /><br />
+					</div>
+					<div class="control-group">
+						<label class="control-label">Nome da Categoria</label>
+						<input type="text" [(ngModel)]="categoria.Data.Nome" name="Nome" maxlength="50" size="50"
+							placeholder="nome de exibição da categoria"><br /><br />
+					</div>
+				</fieldset>
 
-	</fieldset>
+				<div class="control-group">
+					<input tabindex="3" (click)="Salvar()" class="btn btn-inverse large" type="submit" value="Salvar">
+				</div>
 
-
-	<br /><br />
-
-	<input type="button" (click)="Salvar()"  name="botão" value="Salvar" />
-
-</form>
+			</form>
+		</div>
+	</div>
+</section>

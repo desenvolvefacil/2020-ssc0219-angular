@@ -27,30 +27,30 @@
 	<td>
 		<a href="/adm/pedidos">Pedidos</a>
 	</td>
-
 </table>
-
 
 <hr />
 
-<h4>Categorias:</h4>
+<section class="main-content">
 
-<div class="row">
-	<div class="span12">
+	<div class="row">
+		<div class="span12">
+			<h4 class="title"><span class="text"><strong>Lista de Categorias</strong></span></h4>
 
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>Nome</th>
-					<th>Alias</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr *ngFor="let item of categorias; let i = index">
-					<td><a href="/adm/categoria/cadastro/{{item.IdCategoria}}">{{item.Data.Nome}}</a></td>
-					<td><a href="/adm/categoria/cadastro/{{item.IdCategoria}}">{{item.Data.Alias}}</a></td>
-				</tr>
-			</tbody>
-		</table>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Alias</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let item of categorias; let i = index">
+						<td><a href="/adm/categoria/cadastro/{{item.IdCategoria}}">{{item.Data.Nome}}</a></td>
+						<td><a href="/adm/categoria/cadastro/{{item.IdCategoria}}">{{item.Data.Alias}}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
-</div>
+</section>
