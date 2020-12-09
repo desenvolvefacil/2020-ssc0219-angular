@@ -12,12 +12,12 @@
         <li *ngFor="let prod of produtos" class="span4">
           <div class="product-box">
             <a href="/produto/{{prod.Data.Alias}}">
-              <img alt="{{prod.Data.Nome}}" src={{prod.Data.Foto1}}></a>
+              <img alt="{{prod.Data.Nome}}" title="{{prod.Data.Nome}}" src={{prod.Data.Foto1}}></a>
             <br>
             <a href="/produto/{{prod.Data.Alias}}" class="title">{{prod.Data.Nome}}</a>
             <br>
-            <a href="/categoria/{{prod.Data.AliasCategoria}}" class="category">{{prod.Data.AliasCategoria}}</a>
-            <p class="price">{{ prod.Data.Valor | currency:util.Moeda  }}</p>
+            <a href="/categoria/{{prod.Data.AliasCategoria}}" title="{{prod.Data.Nome}}" class="category">{{prod.Data.AliasCategoria}}</a>
+            <p class="price" title="{{ prod.Data.Valor | currency:util.Moeda  }}">{{ prod.Data.Valor | currency:util.Moeda  }}</p>
           </div>
         </li>
 
