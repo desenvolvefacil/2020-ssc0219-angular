@@ -21,9 +21,10 @@
                         </td>
                         <td>{{item.NomeProduto}}</td>
                         <td>
-                            <button (click)="removerQtd(i)" class="btn" type="button"><i class="fa fa-minus-square"
+                            <button (click)="removerQtd(i)" class="btn" type="button"><i class="fa fa-minus-square" title="Diminuir uma unidade do produto"
                                     aria-hidden="true"></i></button> {{item.Qtd}} <button (click)="addQtd(i)"
-                                class="btn" type="button"><i class="fa fa-plus-square" aria-hidden="true"></i></button>
+                                class="btn" type="button"><i class="fa fa-plus-square" 
+                                title="Acrescentar uma unidade do produto" aria-hidden="true"></i></button>
                         </td>
                         <td>{{item.ValorUnitario |currency:util.Moeda}}</td>
                         <td>{{(item.ValorUnitario * item.Qtd) | currency:util.Moeda}}</td>
@@ -43,7 +44,7 @@
 
             <hr>
             <p class="buttons center" *ngIf="carrinho!=null  && carrinho.length>0" >
-                <button (click)="FinalizarCompra()" class="btn btn-inverse" type="submit" id="checkout">Finalizar Compra</button>
+                <button (click)="FinalizarCompra()" class="btn btn-inverse" type="submit" id="checkout" title="Finalizar Compra">Finalizar Compra</button>
             </p>
         </div>
 
