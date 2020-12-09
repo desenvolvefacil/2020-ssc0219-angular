@@ -45,7 +45,11 @@ export class UtilModel {
 
     }
 
-    //console.log(carrinho);
+    //console.error(carrinho);
+
+    if(carrinho==null){
+      carrinho = new Array<ItemPedidoModel>();
+    }
 
     return carrinho;
   }

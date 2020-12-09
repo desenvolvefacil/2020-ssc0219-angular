@@ -42,7 +42,7 @@
 
 
             <hr>
-            <p class="buttons center">
+            <p class="buttons center" *ngIf="carrinho!=null  && carrinho.length>0" >
                 <button (click)="FinalizarCompra()" class="btn btn-inverse" type="submit" id="checkout">Finalizar Compra</button>
             </p>
         </div>
